@@ -9,6 +9,13 @@ import { AboutComponent } from './web/about/about.component';
 import { LoginComponent } from './admin/login/login.component';
 import { PortfolioComponent } from './admin/portfolio/portfolio.component';
 import { MessagesComponent } from './admin/messages/messages.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatButtonModule,
+  MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,13 @@ import { MessagesComponent } from './admin/messages/messages.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
