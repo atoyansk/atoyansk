@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Inject, Input, Output, EventEmitter } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ScrollnavService } from '../../services/scrollnav.service';
 
 @Component({
   selector: 'app-about',
@@ -11,9 +12,8 @@ export class AboutComponent implements OnInit {
   // @Input()
   navIsFixed: boolean;
 
-  @Output() scrollChange = new EventEmitter<boolean>();
-
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private scrollserv: ScrollnavService) { }
 
   // scroll to top
   @HostListener('window:scroll', [])
@@ -21,10 +21,10 @@ export class AboutComponent implements OnInit {
       const valor: number = window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
       if (valor > 50) {
         this.navIsFixed = true;
-        this.scrollChange.emit(this.navIsFixed);
+        this.scrollserv.setdata(this.navIsFixed);
       } else if (this.navIsFixed && valor < 30) {
         this.navIsFixed = false;
-        this.scrollChange.emit(this.navIsFixed);
+        this.scrollserv.setdata(this.navIsFixed);
       }
         }
       scrollToTop() { (function smoothscroll() {

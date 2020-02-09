@@ -1,4 +1,5 @@
 import { Component, Output } from '@angular/core';
+import { ScrollnavService } from './services/scrollnav.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,14 @@ export class AppComponent {
   title = 'atoyansk';
   navIsAffix: boolean;
 
-  scrollPass($event) {
-    this.navIsAffix = $event;
-    console.log(this.navIsAffix);
+  constructor(private scrollserv: ScrollnavService) {
+    this.getData();
+  }
+
+  getData() {
+    this.scrollserv.scrollChange.subscribe(value => {
+        this.navIsAffix = value;
+        console.log(this.navIsAffix);
+      });
   }
 }
