@@ -7,15 +7,14 @@ import { HomeComponent } from './web/home/home.component';
 import { SkillsComponent } from './web/skills/skills.component';
 import { AboutComponent } from './web/about/about.component';
 import { LoginComponent } from './admin/login/login.component';
-import { PortfolioComponent } from './admin/portfolio/portfolio.component';
-import { MessagesComponent } from './admin/messages/messages.component';
+import { AdmAboutComponent } from './admin/adm-about/adm-about.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdmPortfolioComponent } from './admin/adm-portfolio/adm-portfolio.component';
+import { AdmMessagesComponent } from './admin/adm-messages/adm-messages.component';
+import { AdmSkillsComponent } from './admin/adm-skills/adm-skills.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule,
-  MatIconModule,
-  MatCardModule,
-  MatButtonModule,
-  MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,18 +23,16 @@ import { MatToolbarModule,
     SkillsComponent,
     AboutComponent,
     LoginComponent,
-    PortfolioComponent,
-    MessagesComponent
+    AdmAboutComponent,
+    DashboardComponent,
+    AdmPortfolioComponent,
+    AdmMessagesComponent,
+    AdmSkillsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatProgressSpinnerModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

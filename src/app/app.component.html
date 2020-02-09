@@ -1,17 +1,30 @@
-<mat-toolbar class="mat-elevation-z8">  
-  <figure>
-    <img src="../assets/logo.png" class="imgNormal" width="65" height="65" routerLink="/"/>
-  </figure> 
-  <span class="fill-remaining-space"></span>
-  <section class="menu-top">
-    <button mat-button routerLink="/">Home</button>  
-    <button mat-button routerLink="/about">About Me</button>
-    <button mat-button routerLink="/skills">My Skills</button>
-  </section> 
-  <section class="menu-lang">
-    <button mat-button routerLink="/">| PT </button>
-  </section>
-
-</mat-toolbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" data-spy="affix" data-offset-top="0">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      <a class="navbar-brand" href="#start">
+        <figure>
+          <img src="../assets/logo.png" class="imgNormal" height=65 width=65>
+          <img src="../assets/logobranco.png" class="imgAffix" height=80 width=80>
+        </figure>
+      </a>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li><a (click)="onClick()">HOME</a></li>
+        <li><a href="#about">ABOUT ME</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <!--<li><a href="#blog">BLOG</a></li>-->
+        <li><a href="#contact">CONTACT ME</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="lang">
+        <li><a href="/pt-br" target="_self" id="lang"> | PT </a></li>
+      </ul>
+    </div>
+</nav>
   
 <router-outlet></router-outlet>
+<app-about (scrollChange)="scrollPass($event)"></app-about>
