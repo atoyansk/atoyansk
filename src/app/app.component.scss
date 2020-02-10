@@ -1,16 +1,4 @@
 /* Navbar */
-.navbar .navbar-nav>.active>a,
-.navbar .navbar-nav>.active>a:focus,
-.navbar .navbar-nav>.active>a:hover{
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	transition: all 0.8s;
-	-webkit-transform: translateY(0%);
-	-moz-transform: translateY(0%);
-	transform: translateY(0%);
-	background-color: #FFF;
-}
-
 .navbar {
 		margin-bottom: 0;
 		background-color: #FFF !important;
@@ -28,13 +16,26 @@
 		-webkit-transform: translateY(0%);
 		-moz-transform: translateY(0%);
 		transform: translateY(0%);
+
+		.navbar-nav>.active>a,
+		.navbar-nav>.active>a:focus,
+		.navbar-nav>.active>a:hover{
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			transition: all 0.8s;
+			-webkit-transform: translateY(0%);
+			-moz-transform: translateY(0%);
+			transform: translateY(0%);
+			background-color: #FFF;
+		}
 }
+
 .navbar-brand{
 	margin-top: 10px;
 }
 
 .navbar-nav{
-	margin-right: 60px !important;
+	margin-right: 2em !important;
 	li a{
 		position: relative;
 		display: block;
@@ -91,15 +92,18 @@
 .lang{
 	display: block;
 	float: right;
-	position: absolute;
-	bottom: 10px;
+	padding: 15px;
+    margin: 0 0 8px;
+    line-height: 20px;
 	right: 2%;
 	z-index: 9999;
 	list-style-type: none;
+
+	li a{
+		&:hover, &:focus, &.active{ color: var(--primary) !important; }
+	}
 }
-.lang li a:hover, .lang li.active a, .lang li a:focus {
-		color: var(--primary) !important;
-}
+
 .lang-mob{
 	display:none;
 }
@@ -116,6 +120,19 @@
 	-webkit-transition: all 0.8s;
 	-moz-transition: all 0.8s;
 	transition: all 0.8s;
+
+	.navbar-nav li a, .lang li a{
+		color: #FFF;
+	}
+
+	.navbar>.active>a,
+	.navbar>.active>a:focus,
+	.navbar>.active>a:hover{
+		-webkit-transition: all 0.8s;
+		-moz-transition: all 0.8s;
+		transition: all 0.8s;
+		background-color: #000;
+	}
 }
 
   .imgAffix{
@@ -132,21 +149,8 @@
 	  display: none;
   }
 
-  .affix .navbar-nav li a{
-	  color: #FFF;
-  }
-  .affix .lang li a{
-	  color: #FFF;
-  }
 
-.affix .navbar>.active>a,
-.affix .navbar>.active>a:focus,
-.affix .navbar>.active>a:hover{
-  -webkit-transition: all 0.8s;
-  -moz-transition: all 0.8s;
-  transition: all 0.8s;
-  background-color: #000;
-}
+
 
 
 
