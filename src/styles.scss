@@ -3,6 +3,36 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500&display=swap&subset=latin-ext');
 
-@import 'assets/styles/general';
 @import 'assets/styles/variables';
+@import 'assets/styles/mixins';
 
+body {
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4E4E4E;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  a {
+  color: #4E4E4E;
+  }
+  a:focus, a:hover{
+    @include animate(color, 320ms);
+    color: var(--primary);
+    text-decoration: none;
+  }

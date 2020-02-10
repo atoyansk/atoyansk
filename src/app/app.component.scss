@@ -84,7 +84,7 @@
 
 
 .navbar .navbar-toggler:focus, .navbar .navbar-toggler:hover, .navbar-collapse ul {
-	background-color: #FFF;
+	// background-color: #FFF;
 	-webkit-transition: all 0.8s;
 	-moz-transition: all 0.8s;
 	transition: all 0.8s;
@@ -166,6 +166,12 @@
 		top: 70px;
 		left: 30%;
 		width: 70%;
+		ul{ background-color: #FFF; }
+	}
+	.affix{
+		.navbar-collapse{
+			ul{ background-color: var(--gray-shadow) !important; }
+		}
 	}
 	figure {
 		margin: 0 !important;
