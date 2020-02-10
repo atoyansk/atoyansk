@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollnavService } from '../../services/scrollnav.service';
+import { CrudMethodsService } from '../../services/crud-methods.service';
+import { About } from '../../models/about.model';
 
 @Component({
   selector: 'app-about',
@@ -10,9 +12,12 @@ import { ScrollnavService } from '../../services/scrollnav.service';
 export class AboutComponent implements OnInit {
 
   navIsFixed: boolean;
+  basePath = 'about';
+  about: About[];
 
   constructor(@Inject(DOCUMENT) private document: Document,
-              private scrollserv: ScrollnavService) { }
+              private scrollserv: ScrollnavService,
+              private crudService: CrudMethodsService) { }
 
   // scroll to top
   @HostListener('window:scroll', [])
@@ -36,6 +41,13 @@ export class AboutComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.crudService.getItems(this.basePath).subscribe(data => {
+      this.about = data.map(e => {
+        const data = e.payload.doc.data() as About;
+        data.key = e.payload.doc.id;
+        return data;
+      });
+    });
   }
 
 }
