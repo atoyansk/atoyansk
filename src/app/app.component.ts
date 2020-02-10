@@ -9,10 +9,15 @@ import { ScrollnavService } from './services/scrollnav.service';
 export class AppComponent {
   title = 'atoyansk';
   navIsAffix: boolean;
+  navbarOpen = false;
 
   constructor(private scrollserv: ScrollnavService) {
     this.getData();
   }
+
+toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+}
 
   getData() {
     this.scrollserv.scrollChange.subscribe(value => {

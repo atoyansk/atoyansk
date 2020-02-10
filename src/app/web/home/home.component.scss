@@ -1,0 +1,56 @@
+/*========================*/
+/* HEADER STYLES */
+/*========================*/
+
+.jumbotron {
+    padding-top: 90px;
+    background-color:white !important;
+    background-image: url("../../../assets/images/header-image.jpg");
+    background-size: cover;
+    -moz-background-size: cover;
+    background-position: center;
+    position: relative;
+
+    h1{
+        color: #4E4E4E;
+        text-align: right;
+        display: float;
+        margin: -20px 0 208px 40px;
+        font-size: 40px;
+        line-height: 50px;
+    }
+    p{
+        color: #4E4E4E;
+        text-align: right;
+        display: float;
+        margin: -195px 0 205px 60px;
+        font-size: 18px;
+    }
+}
+@media( max-width : 585px ){
+
+    .jumbotron {
+		background-color:white !important;
+		background-image: url("../../../assets/images/workspace.jpg");
+		background-size: cover;
+		-moz-background-size: cover;
+		background-position: center;
+        position: relative;
+            
+        h1{
+            color: #4E4E4E;
+            text-align: center;
+            display: float;
+            margin: 260px 10px 0 10px;
+            font-size: 30px;
+            line-height: 40px;
+        }
+        p{
+            color: #4E4E4E;
+            text-align: center;
+            display: block;
+            margin: auto 0;
+            font-size: 20px;
+        }
+	}
+}

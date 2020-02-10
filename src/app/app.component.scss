@@ -60,33 +60,38 @@
 	}
 }
 /* Mobile */
-// .navbar-default .navbar-toggle {
-// 		border-color: var(--primary);
-// 		color: #fff !important;
-// 		margin-top: 21px;
-// 		margin-bottom: 2px;
-// }
-// .navbar-default .navbar-toggle .icon-bar {
-// 	background-color: var(--primary);
-// }
-// .navbar-toggle .icon-bar+.icon-bar {
-// 	margin-top: 5px;
-// }
-// .navbar-toggle .icon-bar {
-// 	display: block;
-// 	width: 22px;
-// 	height: 3px;
-// 	border-radius: 1px;
-// }
-// .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover, .navbar-collapse ul {
-// 	background-color: #FFF;
-// 	-webkit-transition: all 0.8s;
-// 	-moz-transition: all 0.8s;
-// 	transition: all 0.8s;
-// 	-webkit-transform: translateY(0%);
-// 	-moz-transform: translateY(0%);
-// 	transform: translateY(0%);
-// }
+.navbar .navbar-toggler {
+		border-color: var(--primary);
+		color: #fff !important;
+		margin-bottom: 2px;
+		position: absolute;
+		bottom: 20px;
+		right: 25px;
+		&:focus, &.activate{
+			border-color: var(--primary);
+		}
+		.navbar-toggler-icon {
+			background-color: var(--primary);
+			display: block;
+			width: 22px;
+			height: 3px;
+			border-radius: 1px;
+		}
+		.navbar-toggler-icon+.navbar-toggler-icon {
+			margin-top: 5px;
+		}
+}
+
+
+.navbar .navbar-toggler:focus, .navbar .navbar-toggler:hover, .navbar-collapse ul {
+	background-color: #FFF;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	transition: all 0.8s;
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	transform: translateY(0%);
+}
 
 /*Lang buttons*/
 .lang{
@@ -103,9 +108,10 @@
 		&:hover, &:focus, &.active{ color: var(--primary) !important; }
 	}
 }
-
-.lang-mob{
-	display:none;
+@media( max-width : 480px ){
+	.lang{
+		display:none;
+	}
 }
 
 /* AFFIX Properties */
@@ -139,7 +145,7 @@
 	  display:none;
   }
   .imgNormal{
-	  display:block;
+	  display: block;
   }
 
   .affix .imgAffix {
@@ -148,6 +154,23 @@
   .affix .imgNormal{
 	  display: none;
   }
+
+  @media( max-width: 480px ){
+	.navbar-brand{
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+		float: left !important;
+	}
+	.navbar-collapse{
+		position: absolute;
+		top: 70px;
+		left: 30%;
+		width: 70%;
+	}
+	figure {
+		margin: 0 !important;
+	}
+}
 
 
 

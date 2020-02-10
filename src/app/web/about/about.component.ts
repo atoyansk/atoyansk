@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollnavService } from '../../services/scrollnav.service';
 
@@ -9,7 +9,6 @@ import { ScrollnavService } from '../../services/scrollnav.service';
 })
 export class AboutComponent implements OnInit {
 
-  // @Input()
   navIsFixed: boolean;
 
   constructor(@Inject(DOCUMENT) private document: Document,
