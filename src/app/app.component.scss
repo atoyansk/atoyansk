@@ -1,3 +1,4 @@
+@import '../assets/styles/mixins';
 /* Navbar */
 .navbar {
 		margin-bottom: 0;
@@ -42,10 +43,13 @@
 		padding: 15px;
 		margin: 0 0 8px;
 		line-height: 20px;
+		border-bottom: 0 solid transparent;
+		@include animate(scale, 320ms);
 		&:hover, &:focus, &.active{
 			color: var(--primary) !important;
 			border-bottom: 2px solid var(--primary);
 			margin-bottom: 5px;
+			@include animate(all, 320ms);
 			&:before, &:after{
 				content: "";
 				height: 10px;
@@ -53,9 +57,10 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
+				opacity: 0;
 			}
-			&:before{border-left: 2px solid var(--primary);}
-			&:after{border-right: 2px solid var(--primary);}
+			&:before{border-left: 2px solid var(--primary); opacity: 1; @include animate(all, 320ms);}
+			&:after{border-right: 2px solid var(--primary); opacity: 1; @include animate(all, 320ms);}
 		}
 	}
 }
@@ -80,17 +85,6 @@
 		.navbar-toggler-icon+.navbar-toggler-icon {
 			margin-top: 5px;
 		}
-}
-
-
-.navbar .navbar-toggler:focus, .navbar .navbar-toggler:hover, .navbar-collapse ul {
-	// background-color: #FFF;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	transition: all 0.8s;
-	-webkit-transform: translateY(0%);
-	-moz-transform: translateY(0%);
-	transform: translateY(0%);
 }
 
 /*Lang buttons*/
