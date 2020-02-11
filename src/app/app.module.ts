@@ -21,6 +21,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './web/footer/footer.component';
 import { HeaderComponent } from './web/header/header.component';
+import { ContactComponent } from './web/contact/contact.component';
+import { AdmServicesComponent } from './admin/adm-services/adm-services.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { HeaderComponent } from './web/header/header.component';
     AdmMessagesComponent,
     AdmSkillsComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactComponent,
+    AdmServicesComponent
   ],
   imports: [
     BrowserModule,
