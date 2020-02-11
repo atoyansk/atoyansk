@@ -37,7 +37,15 @@ body {
     text-decoration: none;
   }
   section{
-    margin-top: 60px;
-    padding-bottom: 50px;
+    div{
+      margin-top: 60px;
+      padding: 0 25px 50px;
+    }
+    h1{
+      padding: 80px;
+      text-align: center;
+      color: #FFF;
+      display: block;
+    }
   }
 

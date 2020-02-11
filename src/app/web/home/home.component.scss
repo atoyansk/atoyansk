@@ -27,6 +27,16 @@
         font-size: 18px;
     }
 }
+#services{
+    h1{
+        background: linear-gradient(
+            rgba(39, 224, 255, 0.65),
+            rgba(39, 224, 255, 0.85)
+          ), url('../../../assets/images/angular-img.png') center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+    }
+}
 @media( max-width : 585px ){
 
     .jumbotron {
