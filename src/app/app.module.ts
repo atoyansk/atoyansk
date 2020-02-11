@@ -19,6 +19,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './web/footer/footer.component';
+import { HeaderComponent } from './web/header/header.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { environment } from '../environments/environment';
     DashboardComponent,
     AdmPortfolioComponent,
     AdmMessagesComponent,
-    AdmSkillsComponent
+    AdmSkillsComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
