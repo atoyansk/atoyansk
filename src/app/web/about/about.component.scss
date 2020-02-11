@@ -1,3 +1,4 @@
+@import '../../../assets/styles/mixins';
 h1{
     background: linear-gradient(
         rgba(39, 224, 255, 0.65),
@@ -5,4 +6,5 @@ h1{
       ), url('../../../assets/images/phpcode.jpg') center center;
       background-repeat: no-repeat;
       background-size: cover;
+      @include fade-in('500ms');
 }
