@@ -20,6 +20,7 @@ import { AdmServicesComponent } from './admin/adm-services/adm-services.componen
 import { AuthService } from './services/auth.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -55,7 +56,8 @@ import { AuthGuard } from './utils/auth.guard';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FontAwesomeModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
