@@ -12,6 +12,7 @@ import { AdmServicesComponent } from './admin/adm-services/adm-services.componen
 import { AdmMessagesComponent } from './admin/adm-messages/adm-messages.component';
 import { AdmPortfolioComponent } from './admin/adm-portfolio/adm-portfolio.component';
 import { AdmSkillsComponent } from './admin/adm-skills/adm-skills.component';
+import { AuthGuard } from './utils/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,14 +20,14 @@ const routes: Routes = [
   { path: 'about',          component: AboutComponent },
   { path: 'skills',         component: SkillsComponent },
   { path: 'contact',        component: ContactComponent },
+  { path: 'admin', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login',          component: LoginComponent },
-  { path: 'admin', redirectTo: 'dashboard'},
-  { path: 'dashboard',      component: DashboardComponent },
-  { path: 'adm-about',      component: AdmAboutComponent },
-  { path: 'adm-services',   component: AdmServicesComponent },
-  { path: 'adm-messages',   component: AdmMessagesComponent },
-  { path: 'adm-portfolio',  component: AdmPortfolioComponent },
-  { path: 'adm-skills',     component: AdmSkillsComponent },
+  { path: 'dashboard',      component: DashboardComponent,  canActivate: [AuthGuard] },
+  { path: 'adm-about',      component: AdmAboutComponent,  canActivate: [AuthGuard] },
+  { path: 'adm-services',   component: AdmServicesComponent,  canActivate: [AuthGuard] },
+  { path: 'adm-messages',   component: AdmMessagesComponent,  canActivate: [AuthGuard] },
+  { path: 'adm-portfolio',  component: AdmPortfolioComponent,  canActivate: [AuthGuard] },
+  { path: 'adm-skills',     component: AdmSkillsComponent,  canActivate: [AuthGuard] },
 ];
 
 @NgModule({

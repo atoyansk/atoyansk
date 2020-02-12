@@ -12,17 +12,23 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdmPortfolioComponent } from './admin/adm-portfolio/adm-portfolio.component';
 import { AdmMessagesComponent } from './admin/adm-messages/adm-messages.component';
 import { AdmSkillsComponent } from './admin/adm-skills/adm-skills.component';
+import { FooterComponent } from './web/footer/footer.component';
+import { HeaderComponent } from './web/header/header.component';
+import { ContactComponent } from './web/contact/contact.component';
+import { AdmServicesComponent } from './admin/adm-services/adm-services.component';
+
+import { AuthService } from './services/auth.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { environment } from '../environments/environment';
-import { FooterComponent } from './web/footer/footer.component';
-import { HeaderComponent } from './web/header/header.component';
-import { ContactComponent } from './web/contact/contact.component';
-import { AdmServicesComponent } from './admin/adm-services/adm-services.component';
+import { AuthGuard } from './utils/auth.guard';
+
 
 
 @NgModule({
@@ -48,9 +54,10 @@ import { AdmServicesComponent } from './admin/adm-services/adm-services.componen
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
