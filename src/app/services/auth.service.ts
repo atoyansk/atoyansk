@@ -32,16 +32,27 @@ export class AuthService {
           );
          }
 
-         signIn(email, password) {
-          return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-            .then((result) => {
-              this.ngZone.run(() => {
-                this.router.navigate(['dashboard']);
-              });
-              this.setUserData(result.user);
-            }).catch((error) => {
-              window.alert(error.message);
-            });
+        //  signIn(email, password) {
+        //   return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        //     .then((result) => {
+        //       // this.ngZone.run(() => {
+        //         this.router.navigate(['dashboard']);
+        //      // });
+        //         this.setUserData(result.user);
+        //     }).catch((error) => {
+        //       console.log(error.message);
+        //     });
+        // }
+        signIn(email: string, password: string) {
+          this.afAuth.auth.signInWithEmailAndPassword(email, password)
+            .then(res => {
+              this.router.navigate(['dashboard']);
+              this.setUserData(res.user);
+              console.log('You are Successfully logged in!');
+            })
+          .catch(err => {
+            console.log('Something is wrong:', err.message);
+          });
         }
 
         signUp(email, password) {
@@ -50,7 +61,7 @@ export class AuthService {
               this.sendVerificationMail();
               this.setUserData(result.user);
             }).catch((error) => {
-              window.alert(error.message);
+              console.log(error.message);
             });
         }
 
@@ -70,10 +81,10 @@ export class AuthService {
           });
         }
 
-        get isLoggedIn(): boolean {
-          const user = JSON.parse(localStorage.getItem('user'));
-          return (user !== null && user.emailVerified !== false) ? true : false;
-        }
+        // get isLoggedIn(): boolean {
+        //   const user = JSON.parse(localStorage.getItem('user'));
+        //   return (user !== null && user.emailVerified !== false) ? true : false;
+        // }
 
         //  async googleSignin() {
         //   const provider = new auth.GoogleAuthProvider();
