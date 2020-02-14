@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollnavService } from '../../services/scrollnav.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   navIsAffix: boolean;
   navbarOpen = false;
 
-  constructor(private scrollserv: ScrollnavService) {
+  constructor(private scrollserv: ScrollnavService, public authService: AuthService) {
     this.getData();
   }
 

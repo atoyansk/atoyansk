@@ -6,29 +6,36 @@
       <span class="navbar-toggler-icon"></span>
       <span class="navbar-toggler-icon"></span>
     </button>
-        <a class="navbar-brand" href="#start">
+        <a class="navbar-brand" href="/home">
           <figure>
             <img src="../assets/logo.png" class="imgNormal" height=65 width=65>
             <img src="../assets/logobranco.png" class="imgAffix" height=80 width=80>
           </figure>
         </a>
       <div class="navbar-collapse collapse" id="myNavbar" [ngClass]="{ 'show': navbarOpen }">
-        <ul class="navbar-nav ml-auto">
-          <li><a routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin">DASHBOARD</a></li>
-          <li><a routerLink="/adm-about" routerLinkActive="active" *ngIf="isAdmin">ABOUT</a></li>
-          <li><a routerLink="/adm-services" routerLinkActive="active" *ngIf="isAdmin">SERVICES</a></li>
-          <li><a routerLink="/adm-skills" routerLinkActive="active" *ngIf="isAdmin">SKILLS</a></li>
-          <li><a routerLink="/adm-portfolio" routerLinkActive="active" *ngIf="isAdmin">PORTFOLIO</a></li>
-          <li><a routerLink="/adm-messages" routerLinkActive="active" *ngIf="isAdmin">MESSAGES</a></li>
-          
-          <li><a routerLink="/home" routerLinkActive="active">HOME</a></li>
-          <li><a routerLink="/about" routerLinkActive="active">ABOUT ME</a></li>
-          <li><a routerLink="/skills" routerLinkActive="active">SKILLS</a></li>
-          <!-- <li><a href="#services">SERVICES</a></li>
-          <li><a href="#projects">PROJECTS</a></li> -->
-          <!--<li><a href="#blog">BLOG</a></li>-->
-          <li><a routerLink="/contact" routerLinkActive="active">CONTACT ME</a></li>
-        </ul>
+        <div *ngIf="authService.user$ | async; then authenticated else guest"></div>
+        <ng-template #authenticated>
+          <ul class="navbar-nav ml-auto">
+            <li><a routerLink="/admin" routerLinkActive="active">DASHBOARD</a></li>
+            <li><a routerLink="/adm-about" routerLinkActive="active">ABOUT</a></li>
+            <li><a routerLink="/adm-services" routerLinkActive="active">SERVICES</a></li>
+            <li><a routerLink="/adm-skills" routerLinkActive="active">SKILLS</a></li>
+            <li><a routerLink="/adm-portfolio" routerLinkActive="active">PORTFOLIO</a></li>
+            <li><a routerLink="/adm-messages" routerLinkActive="active">MESSAGES</a></li>
+          </ul>
+        </ng-template>
+        <ng-template #guest>
+          <ul class="navbar-nav ml-auto">  
+            <li><a routerLink="/home" routerLinkActive="active">HOME</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">ABOUT ME</a></li>
+            <li><a routerLink="/skills" routerLinkActive="active">SKILLS</a></li>
+            <!-- <li><a href="#services">SERVICES</a></li>
+            <li><a href="#projects">PROJECTS</a></li> -->
+            <!--<li><a href="#blog">BLOG</a></li>-->
+            <li><a routerLink="/contact" routerLinkActive="active">CONTACT ME</a></li>
+          </ul>
+        </ng-template>
+        
       </div>
       <div>
         <ul class="lang">
