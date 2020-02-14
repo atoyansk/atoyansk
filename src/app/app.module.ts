@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { FooterComponent } from './web/footer/footer.component';
 import { HeaderComponent } from './web/header/header.component';
 import { ContactComponent } from './web/contact/contact.component';
 import { AdmServicesComponent } from './admin/adm-services/adm-services.component';
+import { VerifyEmailAddressComponent } from './admin/verify-email-address/verify-email-address.component';
 
 import { AuthService } from './services/auth.service';
 
@@ -29,12 +30,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthGuard } from './utils/auth.guard';
 
 import { environment } from '../environments/environment';
-import { AuthGuard } from './utils/auth.guard';
-import { VerifyEmailAddressComponent } from './admin/verify-email-address/verify-email-address.component';
 
-
+import { HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -61,11 +62,14 @@ import { VerifyEmailAddressComponent } from './admin/verify-email-address/verify
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

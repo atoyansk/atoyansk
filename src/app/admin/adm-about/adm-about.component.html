@@ -1,1 +1,14 @@
-<p>adm-about works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8">
+            <h1>Manage the "About" Text</h1>
+            <div [formGroup]="myForm">
+                <angular-editor formControlName="aboutContent" [config]="editorConfig" (ngModelChange)="onChange($event)"></angular-editor>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
