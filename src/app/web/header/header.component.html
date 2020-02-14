@@ -16,7 +16,7 @@
         <div *ngIf="authService.user$ | async; then authenticated else guest"></div>
         <ng-template #authenticated>
           <ul class="navbar-nav ml-auto">
-            <li><a routerLink="/admin" routerLinkActive="active">DASHBOARD</a></li>
+            <li><a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a></li>
             <li><a routerLink="/adm-about" routerLinkActive="active">ABOUT</a></li>
             <li><a routerLink="/adm-services" routerLinkActive="active">SERVICES</a></li>
             <li><a routerLink="/adm-skills" routerLinkActive="active">SKILLS</a></li>

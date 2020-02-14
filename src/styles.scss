@@ -49,3 +49,49 @@ body {
     }
   }
 
+  /* LOGIN PROCESS CARDS */
+  .container{
+    height: 100%;
+    align-content: center;
+    margin-top: 80px;
+}
+    
+.card{
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-header{ 
+    background-color: var(--gray-shadow);
+    h3{
+        color: white;
+    }
+}
+.input-group-prepend span{
+    width: 40px;
+    background-color: var(--secondary);
+    color: white;
+    border:0 !important;
+}
+    
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+    
+}
+.login_btn{
+    color: white;
+    background-color: var(--secondary);
+    margin-top: 30px;
+    &:hover{
+        color: white;
+        background-color: rgb(207, 58, 32);
+    }
+}
+    
+.links a{ margin-left: 4px; }
+
