@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { CrudMethodsService } from '../../services/crud-methods.service';
+import { About } from '../../models/about.model';
 
 @Component({
   selector: 'app-adm-about',
@@ -12,6 +14,9 @@ export class AdmAboutComponent implements OnInit {
   title = 'about';
 
   myForm: FormGroup;
+  basePath = 'about';
+  about: About[];
+  dados: any;
 
   content = '';
 
@@ -58,13 +63,21 @@ export class AdmAboutComponent implements OnInit {
       toolbarHiddenButtons: []
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private crudService: CrudMethodsService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      aboutContent: ['', Validators.required]
+      aboutContent: this.fb.control('')
     });
-    console.log(this.content);
+
+    this.dados = this.crudService.getItems(this.basePath).subscribe(data => {
+      this.about = data.map(e => {
+        const data = e.payload.doc.data() as About;
+        data.key = e.payload.doc.id;
+        return data;
+      });
+      this.myForm.controls.aboutContent.setValue(this.about[0].fullText);
+    });
   }
 
   onChange(event) {
