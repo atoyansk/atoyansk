@@ -6,7 +6,7 @@
             <h1>Manage the "About" Text</h1>
             <form [formGroup]="myForm" (ngSubmit)="saveChanges()">
                 <input type="text" id="keyAbout" formControlName="keyAbout"/>
-                <angular-editor formControlName="aboutContent" [config]="editorConfig" (ngModelChange)="onChange($event)"></angular-editor>
+                <angular-editor formControlName="aboutContent" [config]="editorConfig"></angular-editor>
                 <div class="form-footer">
                     <button type="submit" class="btn btn-block login_btn">Save it</button>
                 </div> 

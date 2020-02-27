@@ -96,10 +96,6 @@ export class AdmAboutComponent implements OnInit {
     });
   }
 
-  onChange(event, ab: About) {
-    // console.warn(this.myForm.value);
-  }
-
   saveChanges() {
     this.crudService.updateItem(this.basePath, {
       fullText: this.myForm.value.aboutContent,
