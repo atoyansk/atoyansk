@@ -4,9 +4,13 @@
         </div>
         <div class="col-8">
             <h1>Manage the "About" Text</h1>
-            <div [formGroup]="myForm">
+            <form [formGroup]="myForm" (ngSubmit)="saveChanges()">
+                <input type="text" id="keyAbout" formControlName="keyAbout"/>
                 <angular-editor formControlName="aboutContent" [config]="editorConfig" (ngModelChange)="onChange($event)"></angular-editor>
-            </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-block login_btn">Save it</button>
+                </div> 
+            </form> 
         </div>
         <div class="col">
         </div>

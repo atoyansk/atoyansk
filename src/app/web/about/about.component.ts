@@ -41,8 +41,8 @@ export class AboutComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.crudService.getItems(this.basePath).subscribe(data => {
-      this.about = data.map(e => {
+    this.crudService.getItems(this.basePath).subscribe(dado => {
+      this.about = dado.map(e => {
         const data = e.payload.doc.data() as About;
         data.key = e.payload.doc.id;
         return data;
