@@ -45,7 +45,7 @@
     text-align: center;
     color: white;
 
-    .social li{display:inline;text-indent:-9999px}
+    .social li{display:inline; text-indent:-9999px}
     .social li a{
       background-position:0 0;
       width:33px;
@@ -69,6 +69,7 @@
     .lang-mob{
       display:none;
     }
+    .footerMenu{display:inline;}
   }
   .btn-contact{
     background: var(--gray-medium);
@@ -91,5 +92,20 @@
       margin-right: 53px;
       margin-top: -40px;
       li a{color: white;}
+    }
+  }
+
+  .navbar-nav{
+    margin: 0 auto !important;
+    li a{
+      position: relative;
+      display: block;
+      padding: 15px 30px;
+      margin: 0 0 8px;
+      line-height: 20px;
+      color: white;
+      &:hover, &:focus, &.active{
+        color: var(--primary) !important;
+      }
     }
   }
