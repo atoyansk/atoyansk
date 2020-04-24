@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { ScrollnavService } from '../../services/scrollnav.service';
 import { CrudMethodsService } from '../../services/crud-methods.service';
 import { Services } from '../../models/services.model';
+import { Projects } from '../../models/projects.model';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,10 @@ import { Services } from '../../models/services.model';
 export class HomeComponent implements OnInit {
 
   navIsFixed: boolean;
-  basePath = 'about';
-  services: Services[];
+  basePath = 'projects';
+  projects: Projects[];
+
+  selectedCategory = 'all';
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -42,8 +45,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.crudService.getItems(this.basePath).subscribe(data => {
-      this.services = data.map(e => {
-        const data = e.payload.doc.data() as Services;
+      this.projects = data.map(e => {
+        const data = e.payload.doc.data() as Projects;
         data.key = e.payload.doc.id;
         return data;
       });

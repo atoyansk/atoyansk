@@ -36,6 +36,8 @@ import { environment } from '../environments/environment';
 
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ProjectsPipe } from './projects.pipe';
+import { UniqueCategoryPipe } from './unique-category.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     AdmServicesComponent,
     RegisterUserComponent,
     ForgotPasswordComponent,
-    VerifyEmailAddressComponent
+    VerifyEmailAddressComponent,
+    ProjectsPipe,
+    UniqueCategoryPipe
   ],
   imports: [
     BrowserModule,
