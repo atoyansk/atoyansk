@@ -79,11 +79,12 @@
           background-size: cover;
           @include fade-in('500ms');
 	}
-	.projectlist{
+	#projectlist{
 		display: flex;
 		  flex-flow: row wrap;
-		  justify-content: center;
+		  justify-content: flex-start;
 		  align-items: center;
+		  margin-top: 0;
 	}
     .card{
         padding: 0;
@@ -130,23 +131,23 @@
 
 
 
-#projectlist {
-    display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: row;
-	        flex-direction: row;
-}
+// #projectlist {
+//     display: -webkit-box;
+// 	display: -ms-flexbox;
+// 	display: flex;
+// 	-ms-flex-wrap: wrap;
+// 	    flex-wrap: wrap;
+// 	-webkit-box-pack: center;
+// 	    -ms-flex-pack: center;
+// 	        justify-content: center;
+// 	-webkit-box-align: center;
+// 	    -ms-flex-align: center;
+// 	        align-items: center;
+// 	-webkit-box-orient: horizontal;
+// 	-webkit-box-direction: normal;
+// 	    -ms-flex-direction: row;
+// 	        flex-direction: row;
+// }
 
 
 	.card-img {

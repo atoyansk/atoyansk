@@ -17,9 +17,9 @@
       <li><span class="filter" (click)="selectedCategory = 'all'">All Projects</span></li>
       <li *ngFor="let proj of projects | uniqueCategory:'category'" (click)="selectedCategory = proj.category"><span class="filter" >{{proj.category}}</span></li>
     </ul>
-    <div id="projectlist">
+    <div id="projectlist" [@enterCard]="projects.length">
 
-      <div class="card" *ngFor="let proj of projects | projectFilter:selectedCategory">
+      <div class="card" *ngFor="let proj of projects | projectFilter:selectedCategory" [@leaveCard]>
         <img [src]="proj.img" class="card-img" />
         <div class="card-img-overlay">
           <div class="label">

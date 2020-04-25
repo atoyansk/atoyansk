@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
+
 import { ScrollnavService } from '../../services/scrollnav.service';
 import { CrudMethodsService } from '../../services/crud-methods.service';
 import { Services } from '../../models/services.model';
@@ -8,7 +10,27 @@ import { Projects } from '../../models/projects.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+
+  animations: [
+    trigger('enterCard', [
+      transition('* => *', [
+        query(':enter', style({ overflow: 'hidden', opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}), { optional: true }),
+        query(':enter', stagger('300ms', [
+          animate('250ms ease-out', style({opacity: '1', transform: 'scale3d(1, 1, 1)'}))
+        ]), { optional: true })
+      ])
+    ]),
+
+    trigger('leaveCard', [
+      transition(':enter', [
+        style({opacity: '1', transform: 'scale3d(1, 1, 1)'})
+      ]),
+      transition(':leave', [
+        animate('250ms ease-out', style({opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
 
