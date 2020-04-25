@@ -14,6 +14,8 @@ import { Projects } from '../../models/projects.model';
 
   animations: [
     trigger('enterCard', [
+
+
       transition('* => *', [
         query(':enter', style({ overflow: 'hidden', opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}), { optional: true }),
         query(':enter', stagger('300ms', [
@@ -22,9 +24,10 @@ import { Projects } from '../../models/projects.model';
       ])
     ]),
 
-    trigger('leaveCard', [
+    trigger('filterCard', [
       transition(':enter', [
-        style({opacity: '1', transform: 'scale3d(1, 1, 1)'})
+        style({ overflow: 'hidden', opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}),
+        animate('250ms ease-out', style({opacity: '1', transform: 'scale3d(1, 1, 1)'}))
       ]),
       transition(':leave', [
         animate('250ms ease-out', style({opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}))

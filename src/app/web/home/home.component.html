@@ -19,7 +19,7 @@
     </ul>
     <div id="projectlist" [@enterCard]="projects.length">
 
-      <div class="card" *ngFor="let proj of projects | projectFilter:selectedCategory" [@leaveCard]>
+      <div class="card" *ngFor="let proj of projects | projectFilter:selectedCategory" [@filterCard]>
         <img [src]="proj.img" class="card-img" />
         <div class="card-img-overlay">
           <div class="label">
