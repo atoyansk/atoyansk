@@ -37,16 +37,16 @@ body {
     text-decoration: none;
   }
   section{
-    div{
-      margin-top: 60px;
-      padding: 0 25px 50px;
-    }
     h1{
       padding: 80px;
       text-align: center;
       color: #FFF;
       display: block;
     }
+  }
+  section > div{
+    margin-top: 60px;
+    padding: 0 25px 50px;
   }
 
   /* LOGIN PROCESS CARDS */

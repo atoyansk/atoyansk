@@ -20,32 +20,36 @@
     <div id="projectlist" [@enterCard]="projects.length">
 
       <div class="card" *ngFor="let proj of projects | projectFilter:selectedCategory; index as i" [@filterCard]
-      data-toggle="modal" data-target="#detModal" (click)="showModal=true; i">
+      data-toggle="modal" [attr.data-target]="'#'+detModal" (click)="open(proj)">
         <img [src]="proj.img" class="card-img" />
         <div class="card-img-overlay">
           <div class="label">
 						<div class="label-text">
-							<a class="text-title">{{proj.title}} - {{i}}</a>
+							<a class="text-title">{{proj.title}}</a>
 							<span class="text-category">{{proj.intro}}</span>
 						</div>
 						<div class="label-bg"></div>
 					</div>
         </div>
       </div>
-
-      <div class="modal" id="detModal" [ngClass]="{'show': showModal}">
+      
+      <div class="modal fade" [attr.id]="detModal" [ngClass]="{'show': showModal}">
         <div class="modal-dialog">
           <div class="modal-content">
       
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
+              <h4 class="modal-title">{{modalTitle}}</h4>
               <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
             </div>
       
             <!-- Modal body -->
             <div class="modal-body">
-              Modal body..
+              <div class="container-slide">
+                <ng-image-slider [images]="modalSlide" #nav></ng-image-slider>
+              </div>
+              
+              <p>{{modalIntro}}</p>
             </div>
       
             <!-- Modal footer -->

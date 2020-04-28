@@ -36,6 +36,8 @@ import { environment } from '../environments/environment';
 
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
 
@@ -73,7 +75,8 @@ import { UniqueCategoryPipe } from './unique-category.pipe';
     AngularFireDatabaseModule,
     FontAwesomeModule,
     HttpClientModule,
-    AngularEditorModule
+    AngularEditorModule,
+    NgImageSliderModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

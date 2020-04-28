@@ -42,6 +42,12 @@ export class HomeComponent implements OnInit {
   projects: Projects[];
 
   selectedCategory = 'all';
+  showModal = false;
+
+  modalTitle: string;
+  modalIntro: string;
+  modalKey: string;
+  modalSlide: Array<object>;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -76,6 +82,15 @@ export class HomeComponent implements OnInit {
         return data;
       });
     });
+  }
+
+  open(proj){
+    this.showModal = true;
+    this.modalTitle = proj.title;
+    this.modalIntro = proj.intro;
+    this.modalKey = proj.key;
+    this.modalSlide = proj.slide;
+    console.log(proj);
   }
 
 }

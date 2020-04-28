@@ -94,7 +94,28 @@
         cursor: pointer;
         margin: 20px;
 	}
+	.modal{
+		background-color: rgba(0,0,0,0.5);
+	}
 	.modal.show{ display: block; }
+	.modal-dialog{
+		margin-top: 140px;
+		// max-width: 50%;
+	}
+	// .modal-body{ margin-top: 0; }
+
+	.container-slide {
+		position: relative;
+		top: 5px;
+		padding: 10px;
+		box-sizing: border-box;
+		border: 1px solid #cfcfcf;
+		// margin-top: 0;
+		margin-bottom: 20px;
+		width: 100%; 
+		min-height: 180px;
+		box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+	}
 }
 
 .contents {
