@@ -46,7 +46,7 @@
             <!-- Modal body -->
             <div class="modal-body">
               <div class="container-slide">
-                <ng-image-slider [images]="modalSlide" #nav></ng-image-slider>
+                <ng-image-slider [images]="modalSlide" [imageSize]="{width: 220, height: 180, space: 3}" [imagePopup]="false" [slideImage]="1" #nav></ng-image-slider>
               </div>
               
               <p>{{modalIntro}}</p>
