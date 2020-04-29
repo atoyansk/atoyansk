@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
   modalTitle: string;
   modalIntro: string;
   modalKey: string;
+  modalImg: string;
+  modalChallenge: string;
   modalSlide: Array<object>;
 
   constructor(@Inject(DOCUMENT) private document: Document,
@@ -90,6 +92,8 @@ export class HomeComponent implements OnInit {
     this.modalIntro = proj.intro;
     this.modalKey = proj.key;
     this.modalSlide = proj.slide;
+    this.modalImg = proj.img;
+    this.modalChallenge = proj.challenge;
     console.log(proj);
   }
 

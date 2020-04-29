@@ -99,22 +99,48 @@
 	}
 	.modal.show{ display: block; }
 	.modal-dialog{
-		margin-top: 140px;
-		max-width: 510px;
+		margin-top: 100px;
+		max-width: 80%;
+		max-height: 90%;
 	}
-	// .modal-body{ margin-top: 0; }
+	.modal-body{ 
+		overflow-y: scroll; 
+		height: 400px;
+		padding: 0;
+	}
+
+	.entry-slide{
+		padding: 10px;
+		box-sizing: border-box;
+		border-bottom: 1px solid #cfcfcf;
+		width: 100%;
+	}
+	.entry-slide.row{ margin-left: 0; }
+
+	.container-challenge{
+		background-color: #FAFAFA;
+		min-height: 300px;
+		border-bottom: 1px solid #cfcfcf;
+		padding: 20px 0;
+	}
 
 	.container-slide {
 		position: relative;
 		top: 5px;
 		padding: 10px;
 		box-sizing: border-box;
-		border: 1px solid #cfcfcf;
-		// margin-top: 0;
-		margin-bottom: 20px;
+		border-bottom: 1px solid #cfcfcf;
 		width: 100%; 
 		min-height: 180px;
-		box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+	}
+	.challenge{
+		padding: 15px 0;
+		margin: 0 auto 0 auto !important;
+		text-align: left;
+		line-height: 1.7rem;
+		max-width: 40rem;
+		color: #111111;
+		text-rendering: optimizeLegibility;
 	}
 }
 
