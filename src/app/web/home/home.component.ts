@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit {
   modalIntro: string;
   modalKey: string;
   modalImg: string;
+  modalImgintro: string;
+  modalImgsize: {};
   modalChallenge: string;
   modalSlide: Array<object>;
 
@@ -93,6 +95,8 @@ export class HomeComponent implements OnInit {
     this.modalKey = proj.key;
     this.modalSlide = proj.slide;
     this.modalImg = proj.img;
+    this.modalImgintro = proj.imgIntro;
+    this.modalImgsize = proj.imgSize;
     this.modalChallenge = proj.challenge;
     console.log(proj);
   }

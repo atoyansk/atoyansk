@@ -26,7 +26,7 @@
           <div class="label">
 						<div class="label-text">
 							<a class="text-title">{{proj.title}}</a>
-							<span class="text-category">{{proj.intro}}</span>
+							<span class="text-category">{{proj.general}}</span>
 						</div>
 						<div class="label-bg"></div>
 					</div>
@@ -46,18 +46,19 @@
             <div class="modal-body">
               <div class="entry-slide row">
                 <div class="col">
-                  <h2 class="modal-title">{{modalTitle}}</h2>
-                  <p>{{modalIntro}}</p>
+                  <h2>{{modalTitle}}</h2>
+                  <div [innerHTML]="modalIntro"></div>
                 </div>
                 <div class="col">
-                  <img [src]="modalImg"/>
+                  <img [src]="modalImgintro"/>
                 </div>
               </div>
               <div class="container-challenge">
                 <div class="container-slide">
-                  <ng-image-slider [images]="modalSlide" [imageSize]="{width: 220, height: 180, space: 3}" [imagePopup]="false" [slideImage]="1" #nav></ng-image-slider>
+                  <ng-image-slider [images]="modalSlide" [imageSize]="modalImgsize" [imagePopup]="false" [slideImage]="1" #nav></ng-image-slider>
                 </div>
                 <div class="challenge">
+                  <h4>The Project</h4>
                   <div [innerHTML]="modalChallenge"></div>
                 </div>
               </div>

@@ -110,12 +110,37 @@
 	}
 
 	.entry-slide{
-		padding: 10px;
+		padding: 10px 10px 0px;
 		box-sizing: border-box;
 		border-bottom: 1px solid #cfcfcf;
 		width: 100%;
-	}
-	.entry-slide.row{ margin-left: 0; }
+		
+		&.row{ margin-left: 0; }
+
+		h2{
+			font-size: 3rem;
+			font-weight: normal;
+			border-bottom: #DDD solid 1px;
+			padding-bottom: 5px;
+			margin-bottom: 0.1em;
+			text-align: left;
+		}
+		col{ padding: 0 !important; }
+		div{
+			padding: 15px 0 0 0;
+			margin: 0 auto 0 auto !important;
+			text-align: left;
+			line-height: 1.7rem;
+			max-width: 26rem;
+			color: #111111;
+			text-rendering: optimizeLegibility;
+		}
+		img{
+			height: 480px;
+			width: 400px;
+			margin: 0 auto 0 auto !important;
+		}
+	} 
 
 	.container-challenge{
 		background-color: #FAFAFA;
