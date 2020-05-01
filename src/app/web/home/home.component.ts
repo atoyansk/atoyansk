@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 
@@ -11,6 +11,8 @@ import { Projects } from '../../models/projects.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+
+  encapsulation: ViewEncapsulation.None,
 
   animations: [
     trigger('enterCard', [
