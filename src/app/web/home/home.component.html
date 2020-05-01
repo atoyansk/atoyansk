@@ -83,8 +83,9 @@
               </div>
               <div class="container-access">
                 <div class="access">
-                  <h4>Check it Out</h4>
-                  <div [innerHTML]="modalAccess"></div>
+                  <h4>Take a Look</h4>
+                  <div>{{modalAccess.text}}</div>
+                  <a [href]="modalAccess.link"><img [src]="modalAccess.badge"/></a>
                 </div>
               </div>
             </div>

@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   modalFeatures: string;
   modalImgFet: string;
   modalTech: string;
-  modalAccess: string;
+  modalAccess: {};
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
