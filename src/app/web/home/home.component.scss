@@ -167,6 +167,25 @@
 		color: #111111;
 		text-rendering: optimizeLegibility;
 	}
+	.container-features, .container-tech, .container-access{
+		background-color: #FFF;
+		min-height: 100px;
+		padding: 20px 0;
+	}
+	.features, .tech, .access{
+		padding: 15px 0;
+		margin: 0 auto 0 auto !important;
+		text-align: left;
+		line-height: 1.7rem;
+		max-width: 40rem;
+		color: #111111;
+		text-rendering: optimizeLegibility;
+	}
+
+	.features{
+		.row{ margin-left: 0 !important; margin-right: 0 !important; }
+		img{border: 1px solid #cfcfcf; }
+	}
 }
 
 .contents {

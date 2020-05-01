@@ -52,6 +52,10 @@ export class HomeComponent implements OnInit {
   modalImgsize: {};
   modalChallenge: string;
   modalSlide: Array<object>;
+  modalFeatures: string;
+  modalImgFet: string;
+  modalTech: string;
+  modalAccess: string;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -98,6 +102,10 @@ export class HomeComponent implements OnInit {
     this.modalImgintro = proj.imgIntro;
     this.modalImgsize = proj.imgSize;
     this.modalChallenge = proj.challenge;
+    this.modalFeatures = proj.features;
+    this.modalImgFet = proj.imgFet;
+    this.modalTech = proj.tech;
+    this.modalAccess = proj.access;
     console.log(proj);
   }
 
