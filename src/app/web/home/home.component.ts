@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  open(proj){
+  open(proj) {
     this.showModal = true;
     this.modalTitle = proj.title;
     this.modalIntro = proj.intro;

@@ -2,80 +2,92 @@
     <div class="row">
         <div class="col-8">
             <h1>Manage the Projects</h1>
-            <form [formGroup]="myForm" (ngSubmit)="createProj()">
-                <input type="hidden" id="keyProj" formControlName="keyProj"/>
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select type="text" class="form-control" id="category" placeholder="Choose a category" formControlName="category">
-                      <option *ngFor="let cat of categories" value="{{cat.catName}}">{{cat.catName}}</option>
-                    </select>
-                  </div>
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title" placeholder="Project's Title" formControlName="title">
-                </div>
-                <div class="form-group">
-                  <label for="general">List's Intro</label>
-                  <input type="text" class="form-control" id="general" placeholder="List's Intro" formControlName="general">
-                </div>
-                <label for="introContent">Content Intro</label>
-                <angular-editor formControlName="introContent" [config]="editorConfig"></angular-editor>
-                <label for="challengeContent">Project Description</label>
-                <angular-editor formControlName="challengeContent" [config]="editorConfig"></angular-editor>
-                <label for="featuresContent">Features Description</label>
-                <angular-editor formControlName="featuresContent" [config]="editorConfig"></angular-editor>
-                <label for="techContent">Technology Description</label>
-                <angular-editor formControlName="techContent" [config]="editorConfig"></angular-editor>
-                <div class="access-container">
-                    <h5>Take a Look</h5>
+            <div class="basicInfo">
+                <form [formGroup]="myForm" (ngSubmit)="createProj()">
+                    <input type="hidden" id="keyProj" formControlName="keyProj"/>
                     <div class="form-group">
-                      <label for="texto">Intro Sentence</label>
-                      <input type="text" class="form-control" id="texto" placeholder="Intro Sentence" formControlName="texto">
+                        <label for="category">Category</label>
+                        <select type="text" class="form-control" id="category" placeholder="Choose a category" formControlName="category">
+                          <option *ngFor="let cat of categories" value="{{cat.catName}}">{{cat.catName}}</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input type="text" class="form-control" id="title" placeholder="Project's Title" formControlName="title">
                     </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="form-group">
-                              <label for="link">Link</label>
-                              <input type="text" class="form-control" id="link" placeholder="Project's Link" formControlName="link">
+                    <div class="form-group">
+                      <label for="general">List's Intro</label>
+                      <input type="text" class="form-control" id="general" placeholder="List's Intro" formControlName="general">
+                    </div>
+                    <label for="introContent">Content Intro</label>
+                    <angular-editor formControlName="introContent" [config]="editorConfig"></angular-editor>
+                    <label for="challengeContent">Project Description</label>
+                    <angular-editor formControlName="challengeContent" [config]="editorConfig"></angular-editor>
+                    <label for="featuresContent">Features Description</label>
+                    <angular-editor formControlName="featuresContent" [config]="editorConfig"></angular-editor>
+                    <label for="techContent">Technology Description</label>
+                    <angular-editor formControlName="techContent" [config]="editorConfig"></angular-editor>
+                    <div class="access-container">
+                        <h5>Take a Look</h5>
+                        <div class="form-group">
+                          <label for="texto">Intro Sentence</label>
+                          <input type="text" class="form-control" id="texto" placeholder="Intro Sentence" formControlName="texto">
+                        </div>
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="form-group">
+                                  <label for="link">Link</label>
+                                  <input type="text" class="form-control" id="link" placeholder="Project's Link" formControlName="link">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group">
+                                  <label for="badge">Badge</label>
+                                  <select type="text" class="form-control" id="badge" placeholder="Choose a badge" formControlName="badge">
+                                    <option *ngFor="let bad of badges" value="{{bad.badName}}">{{bad.badName}}</option>
+                                  </select>
+                                </div> 
                             </div>
                         </div>
-                        <div class="col-5">
-                            <div class="form-group">
-                              <label for="badge">Badge</label>
-                              <select type="text" class="form-control" id="badge" placeholder="Choose a badge" formControlName="badge">
-                                <option *ngFor="let bad of badges" value="{{bad.badName}}">{{bad.badName}}</option>
-                              </select>
-                            </div> 
+                    </div>
+                    <div class="access-container">
+                        <h5>Slide Images Settings</h5>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                  <label for="width">Width for Slide Images</label>
+                                  <input type="number" class="form-control" id="width" placeholder="Width" formControlName="width">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                  <label for="height">Height for Slide Images</label>
+                                  <input type="number" class="form-control" id="height" placeholder="Height" formControlName="height">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                  <label for="space">Space Between Images</label>
+                                  <input type="number" class="form-control" id="space" placeholder="Space" formControlName="space">
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-block login_btn">Save and Continue</button>
+                    </div> 
+                </form>
+            </div>
+            <div class="imgList">
+                <div class="dropzone" 
+                    dropzone
+                    (hovered)="toggleHover($event)"
+                    (dropped)="onDrop($event)"
+                    [class.hovering]="isHovering">
+                    <h3>Image to the Project's List</h3>
+                    <p>Drag and Drop a File</p>
                 </div>
-                <div class="access-container">
-                    <h5>Slide Images Settings</h5>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                              <label for="width">Width for Slide Images</label>
-                              <input type="number" class="form-control" id="width" placeholder="Width" formControlName="width">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                              <label for="height">Height for Slide Images</label>
-                              <input type="number" class="form-control" id="height" placeholder="Height" formControlName="height">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                              <label for="space">Space Between Images</label>
-                              <input type="number" class="form-control" id="space" placeholder="Space" formControlName="space">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="btn btn-block login_btn">Save it</button>
-                </div> 
-            </form> 
+            </div> 
         </div>
         <div class="col-4">
             <div class="card" *ngFor="let proj of project">

@@ -40,6 +40,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 
 import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
+import { DropzoneDirective } from './utils/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { UniqueCategoryPipe } from './unique-category.pipe';
     ForgotPasswordComponent,
     VerifyEmailAddressComponent,
     ProjectsPipe,
-    UniqueCategoryPipe
+    UniqueCategoryPipe,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
