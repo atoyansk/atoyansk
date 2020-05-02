@@ -1,0 +1,30 @@
+.card{
+    margin-bottom: 15px;
+    max-height: 200px;
+    h5, span{
+        color: white;
+    }
+    .controles{
+        display: flex;
+        justify-content: space-between;
+        padding: 22px 5px;
+    }
+    .col-md-8{
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+    img{
+        border: 1px solid #cfcfcf;
+        border-radius: 50%;
+        width: 85px;
+        height: 85px;
+    }
+}
+
+.access-container{
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid #cfcfcf;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
