@@ -12,5 +12,5 @@ export class Projects {
     features: string;
     imgFet: string;
     tech: string;
-    access: string;
+    access: object;
 }

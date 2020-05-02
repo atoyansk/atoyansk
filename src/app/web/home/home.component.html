@@ -84,8 +84,18 @@
               <div class="container-access">
                 <div class="access">
                   <h4>Take a Look</h4>
-                  <div>{{modalAccess.text}}</div>
-                  <a [href]="modalAccess.link"><img [src]="modalAccess.badge"/></a>
+                  <div>{{texto}}</div>
+                  <a [href]="link" target="_blank">                      
+                      <div *ngIf="badge === 'google'">
+                        <img src="../../../assets/images/google-play-badge.png"/>
+                      </div>
+                      <div *ngIf="badge === 'ios'">
+                        <img src="../../../assets/images/apple-badge.png"/>
+                      </div>
+                      <div *ngIf="badge === 'web'">
+                        <img src="../../../assets/images/web.png"/>
+                      </div>
+                  </a>
                 </div>
               </div>
             </div>

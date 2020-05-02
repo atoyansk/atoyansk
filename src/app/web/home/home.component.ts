@@ -58,6 +58,9 @@ export class HomeComponent implements OnInit {
   modalImgFet: string;
   modalTech: string;
   modalAccess: {};
+  badge: string;
+  texto: string;
+  link: string;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -108,6 +111,9 @@ export class HomeComponent implements OnInit {
     this.modalImgFet = proj.imgFet;
     this.modalTech = proj.tech;
     this.modalAccess = proj.access;
+    this.badge = proj.access.badge;
+    this.texto = proj.access.texto;
+    this.link = proj.access.link;
     console.log(proj);
   }
 
