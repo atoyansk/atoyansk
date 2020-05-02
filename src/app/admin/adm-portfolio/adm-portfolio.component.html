@@ -15,9 +15,9 @@
                   <input type="text" class="form-control" id="title" placeholder="Project's Title" formControlName="title">
                 </div>
                 <div class="form-group">
-                    <label for="general">List's Intro</label>
-                    <input type="text" class="form-control" id="general" placeholder="List's Intro" formControlName="general">
-                  </div>
+                  <label for="general">List's Intro</label>
+                  <input type="text" class="form-control" id="general" placeholder="List's Intro" formControlName="general">
+                </div>
                 <label for="introContent">Content Intro</label>
                 <angular-editor formControlName="introContent" [config]="editorConfig"></angular-editor>
                 <label for="challengeContent">Project Description</label>
@@ -46,6 +46,29 @@
                                 <option *ngFor="let bad of badges" value="{{bad.badName}}">{{bad.badName}}</option>
                               </select>
                             </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="access-container">
+                    <h5>Slide Images Settings</h5>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                              <label for="width">Width for Slide Images</label>
+                              <input type="number" class="form-control" id="width" placeholder="Width" formControlName="width">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                              <label for="height">Height for Slide Images</label>
+                              <input type="number" class="form-control" id="height" placeholder="Height" formControlName="height">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                              <label for="space">Space Between Images</label>
+                              <input type="number" class="form-control" id="space" placeholder="Space" formControlName="space">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,6 +108,4 @@
 img (imagem da lista)
 imgIntro (imagem inicial no modal)
 slide (multiplo upload, chamado thumbImage)
-imgSize (definições das imagens do slide: width, height e space)
-
 imgFet (imagem única do projeto, detalhe)

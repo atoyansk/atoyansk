@@ -88,7 +88,10 @@ export class AdmPortfolioComponent implements OnInit {
       techContent: this.fb.control(''),
       texto: this.fb.control(''),
       link: this.fb.control(''),
-      badge: this.fb.control('')
+      badge: this.fb.control(''),
+      width: this.fb.control(''),
+      height: this.fb.control(''),
+      space: this.fb.control('')
     });
 
     this.getProjects();
