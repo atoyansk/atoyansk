@@ -41,6 +41,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
 import { DropzoneDirective } from './utils/dropzone.directive';
+import { UploadTaskComponent } from './admin/upload-task/upload-task.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DropzoneDirective } from './utils/dropzone.directive';
     VerifyEmailAddressComponent,
     ProjectsPipe,
     UniqueCategoryPipe,
-    DropzoneDirective
+    DropzoneDirective,
+    UploadTaskComponent
   ],
   imports: [
     BrowserModule,

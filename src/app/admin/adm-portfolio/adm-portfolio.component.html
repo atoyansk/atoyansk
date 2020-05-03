@@ -87,6 +87,9 @@
                     <h3>Image to the Project's List</h3>
                     <p>Drag and Drop a File</p>
                 </div>
+                <div *ngFor="let file of files">
+                  <upload-task [file]="file"></upload-task>
+                </div>
                 <div class="dropzone" 
                     dropzone
                     (hovered)="toggleHover1($event)"
