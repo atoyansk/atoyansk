@@ -16,6 +16,8 @@ export class AdmPortfolioComponent implements OnInit {
   project: Projects[];
   dados: any;
 
+  displayed = true;
+
   content = '';
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -112,6 +114,14 @@ export class AdmPortfolioComponent implements OnInit {
       // this.myForm.controls.aboutContent.setValue(this.about[0].fullText);
       // this.myForm.controls.keyAbout.setValue(this.about[0].key);
     });
+  }
+
+  createBasic() {
+    this.displayed = false;
+  }
+
+  delProject(key) {
+    this.crudService.deleteItem(this.basePath, key);
   }
 
   toggleHover(event: boolean) {

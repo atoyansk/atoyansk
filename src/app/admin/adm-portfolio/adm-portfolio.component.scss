@@ -29,12 +29,12 @@
     margin: 15px 0;
 }
 
-.basicInfo{
+.basicDisplay{
     display: block;
     opacity: 1;
 }
 
-.imgList{
+.displayNone{
     display: none;
     opacity: 0;
 }
@@ -44,7 +44,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    min-width: 80vw;
     font-weight: 200;
     height: 300px;
     border: 2px dashed #f16624;

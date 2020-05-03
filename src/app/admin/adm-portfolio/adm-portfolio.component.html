@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-8">
             <h1>Manage the Projects</h1>
-            <div class="basicInfo">
-                <form [formGroup]="myForm" (ngSubmit)="createProj()">
+            <div [ngClass]="{'basicDisplay': displayed,'displayNone': !displayed}">
+                <form [formGroup]="myForm" (ngSubmit)="createBasic()">
                     <input type="hidden" id="keyProj" formControlName="keyProj"/>
                     <div class="form-group">
                         <label for="category">Category</label>
@@ -78,7 +78,7 @@
                     </div> 
                 </form>
             </div>
-            <div class="imgList">
+            <div [ngClass]="{'basicDisplay': !displayed,'displayNone': displayed}">
                 <div class="dropzone" 
                     dropzone
                     (hovered)="toggleHover($event)"
@@ -86,6 +86,30 @@
                     [class.hovering]="isHovering">
                     <h3>Image to the Project's List</h3>
                     <p>Drag and Drop a File</p>
+                </div>
+                <div class="dropzone" 
+                    dropzone
+                    (hovered)="toggleHover1($event)"
+                    (dropped)="onDrop1($event)"
+                    [class.hovering]="isHovering">
+                    <h3>Main Image into Modal</h3>
+                    <p>Drag and Drop a File</p>
+                </div>
+                <div class="dropzone" 
+                    dropzone
+                    (hovered)="toggleHover2($event)"
+                    (dropped)="onDrop2($event)"
+                    [class.hovering]="isHovering">
+                    <h3>Feature Image into Modal</h3>
+                    <p>Drag and Drop a File</p>
+                </div>
+                <div class="dropzone" 
+                    dropzone
+                    (hovered)="toggleHover3($event)"
+                    (dropped)="onDrop3($event)"
+                    [class.hovering]="isHovering">
+                    <h3>Slide Images into Modal</h3>
+                    <p>Drag and Drop Many Files</p>
                 </div>
             </div> 
         </div>
@@ -108,7 +132,7 @@
                   </div> 
                   <div class="col-md-6 controles text-right">
                     <button class="btn btn-warning" >Edit</button>
-                    <button class="btn btn-danger" >Delete</button>
+                    <button class="btn btn-danger" (click)="delProject(proj.key)">Delete</button>
                   </div>
                 </div> 
               </div>
@@ -116,8 +140,3 @@
         </div>
     </div>
 </div>
-
-img (imagem da lista)
-imgIntro (imagem inicial no modal)
-slide (multiplo upload, chamado thumbImage)
-imgFet (imagem única do projeto, detalhe)
