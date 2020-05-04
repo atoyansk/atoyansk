@@ -12,7 +12,7 @@ import { finalize, tap } from 'rxjs/operators';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file: File;
-  @Input() key;
+  @Input() id;
 
   task: AngularFireUploadTask;
 
@@ -48,7 +48,7 @@ export class UploadTaskComponent implements OnInit {
       finalize( async() =>  {
         this.downloadURL = await ref.getDownloadURL().toPromise();
 
-        this.db.doc(this.basePath + '/' + this.key).update( { img: this.downloadURL });
+        this.db.doc(this.basePath + '/' + this.id).update( { img: this.downloadURL });
         // this.firestore.doc(basePath + '/' + key).update(value);
       }),
     );

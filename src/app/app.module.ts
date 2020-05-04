@@ -42,6 +42,7 @@ import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
 import { DropzoneDirective } from './utils/dropzone.directive';
 import { UploadTaskComponent } from './admin/upload-task/upload-task.component';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { UploadTaskComponent } from './admin/upload-task/upload-task.component';
     AngularEditorModule,
     NgImageSliderModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

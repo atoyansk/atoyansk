@@ -3,7 +3,9 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudMethodsService } from '../../services/crud-methods.service';
 import { Projects } from '../../models/projects.model';
-import { DomSanitizer } from '@angular/platform-browser';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-adm-portfolio',
@@ -77,11 +79,18 @@ export class AdmPortfolioComponent implements OnInit {
     {badName: 'web'}
   ];
 
-  isHovering: boolean;
+  // isHovering: boolean;
 
-  files: File[] = [];
+  // files: File[] = [];
 
-  constructor(private fb: FormBuilder, private crudService: CrudMethodsService, private sanitizer: DomSanitizer) { }
+  task: AngularFireUploadTask;
+
+  percentage: Observable<number>;
+  snapshot: Observable<any>;
+  downloadURL: string;
+
+
+  constructor(private fb: FormBuilder, private crudService: CrudMethodsService, private storage: AngularFireStorage) { }
 
   ngOnInit() {
 
@@ -119,8 +128,8 @@ export class AdmPortfolioComponent implements OnInit {
   }
 
   createBasic() {
-    if (this.myForm.controls.$key.value == null) {
-      this.crudService.createItem(this.basePath, {
+    // if (this.myForm.controls.$key.value == null) {
+      return this.crudService.createItem(this.basePath, {
         category: this.myForm.controls.category.value,
         title: this.myForm.controls.title.value,
         general: this.myForm.controls.general.value,
@@ -140,24 +149,50 @@ export class AdmPortfolioComponent implements OnInit {
         }
       }).then(({id}) => {
         console.log(id);
+        return id;
       }).then(() => {
         this.displayed = false;
       });
-    }
+    // }
   }
 
   delProject(key) {
     this.crudService.deleteItem(this.basePath, key);
   }
 
-  toggleHover(event: boolean) {
-    this.isHovering = event;
-  }
+  // toggleHover(event: boolean) {
+  //   this.isHovering = event;
+  // }
 
-  onDrop(files: FileList) {
-    for (let i = 0; i < files.length; i++) {
-      this.files.push(files.item(i));
-    }
+  // onDrop(files: FileList, id: any) {
+  //   for (let i = 0; i < files.length; i++) {
+  //     this.files.push(files.item(i), id);
+  //   }
+  // }
+
+  upload(event) {
+
+    // The storage path
+    const path = `projects/${Date.now()}_${event.target.files[0].name}`;
+
+    // Reference to storage bucket
+    const ref = this.storage.ref(path);
+
+    // The main task
+    this.task = this.storage.upload(path, event.target.files[0]);
+
+    // Progress monitoring
+    this.percentage = this.task.percentageChanges();
+
+    this.snapshot   = this.task.snapshotChanges().pipe(
+      tap(console.log),
+      // The file's download URL
+      finalize( async () =>  {
+        this.downloadURL = await ref.getDownloadURL().toPromise();
+
+        this.crudService.updateItem(this.basePath, { img: this.downloadURL }, this.$key); // Not insert yet
+      }),
+    );
   }
 
 }
