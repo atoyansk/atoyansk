@@ -3,6 +3,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudMethodsService } from '../../services/crud-methods.service';
 import { Projects } from '../../models/projects.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-adm-portfolio',
@@ -15,6 +16,7 @@ export class AdmPortfolioComponent implements OnInit {
   basePath = 'projects';
   project: Projects[];
   dados: any;
+  $key: string;
 
   displayed = true;
 
@@ -79,12 +81,12 @@ export class AdmPortfolioComponent implements OnInit {
 
   files: File[] = [];
 
-  constructor(private fb: FormBuilder, private crudService: CrudMethodsService) { }
+  constructor(private fb: FormBuilder, private crudService: CrudMethodsService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
 
     this.myForm = this.fb.group({
-      keyProj: this.fb.control(''),
+      $key: this.fb.control(''),
       category: this.fb.control(''),
       title: this.fb.control(''),
       general: this.fb.control(''),
@@ -117,7 +119,31 @@ export class AdmPortfolioComponent implements OnInit {
   }
 
   createBasic() {
-    this.displayed = false;
+    if (this.myForm.controls.$key.value == null) {
+      this.crudService.createItem(this.basePath, {
+        category: this.myForm.controls.category.value,
+        title: this.myForm.controls.title.value,
+        general: this.myForm.controls.general.value,
+        introContent: this.myForm.controls.introContent.value,
+        challengeContent: this.myForm.controls.challengeContent.value,
+        featuresContent: this.myForm.controls.featuresContent.value,
+        techContent: this.myForm.controls.techContent.value,
+        access: {
+          texto: this.myForm.controls.texto.value,
+          link: this.myForm.controls.link.value,
+          badge: this.myForm.controls.badge.value
+        },
+        imgSize: {
+          width: this.myForm.controls.width.value,
+          height: this.myForm.controls.height.value,
+          space: this.myForm.controls.space.value
+        }
+      }).then(({id}) => {
+        console.log(id);
+      }).then(() => {
+        this.displayed = false;
+      });
+    }
   }
 
   delProject(key) {

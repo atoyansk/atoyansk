@@ -4,7 +4,7 @@
             <h1>Manage the Projects</h1>
             <div [ngClass]="{'basicDisplay': displayed,'displayNone': !displayed}">
                 <form [formGroup]="myForm" (ngSubmit)="createBasic()">
-                    <input type="hidden" id="keyProj" formControlName="keyProj"/>
+                    <input type="hidden" id="$key" formControlName="$key"/>
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select type="text" class="form-control" id="category" placeholder="Choose a category" formControlName="category">
