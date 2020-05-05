@@ -19,6 +19,7 @@ export class AdmPortfolioComponent implements OnInit {
   project: Projects[];
   dados: any;
   $key: string;
+  _ID: string;
 
   displayed = true;
 
@@ -87,7 +88,7 @@ export class AdmPortfolioComponent implements OnInit {
 
   percentage: Observable<number>;
   snapshot: Observable<any>;
-  downloadURL: string;
+  downloadURL: Observable<string | null>;
 
 
   constructor(private fb: FormBuilder, private crudService: CrudMethodsService, private storage: AngularFireStorage) { }
@@ -133,10 +134,10 @@ export class AdmPortfolioComponent implements OnInit {
         category: this.myForm.controls.category.value,
         title: this.myForm.controls.title.value,
         general: this.myForm.controls.general.value,
-        introContent: this.myForm.controls.introContent.value,
-        challengeContent: this.myForm.controls.challengeContent.value,
-        featuresContent: this.myForm.controls.featuresContent.value,
-        techContent: this.myForm.controls.techContent.value,
+        intro: this.myForm.controls.introContent.value,
+        challenge: this.myForm.controls.challengeContent.value,
+        features: this.myForm.controls.featuresContent.value,
+        tech: this.myForm.controls.techContent.value,
         access: {
           texto: this.myForm.controls.texto.value,
           link: this.myForm.controls.link.value,
@@ -148,8 +149,9 @@ export class AdmPortfolioComponent implements OnInit {
           space: this.myForm.controls.space.value
         }
       }).then(({id}) => {
-        console.log(id);
-        return id;
+        this._ID = id;
+        console.log(this._ID);
+        return this._ID;
       }).then(() => {
         this.displayed = false;
       });
@@ -170,29 +172,27 @@ export class AdmPortfolioComponent implements OnInit {
   //   }
   // }
 
-  upload(event) {
-
-    // The storage path
+  upload(event, index) {
     const path = `projects/${Date.now()}_${event.target.files[0].name}`;
-
-    // Reference to storage bucket
     const ref = this.storage.ref(path);
-
-    // The main task
     this.task = this.storage.upload(path, event.target.files[0]);
-
-    // Progress monitoring
     this.percentage = this.task.percentageChanges();
 
-    this.snapshot   = this.task.snapshotChanges().pipe(
-      tap(console.log),
-      // The file's download URL
-      finalize( async () =>  {
-        this.downloadURL = await ref.getDownloadURL().toPromise();
-
-        this.crudService.updateItem(this.basePath, { img: this.downloadURL }, this.$key); // Not insert yet
-      }),
-    );
+    console.log(path);
+    this.task.snapshotChanges().pipe(
+        finalize(() => {
+          ref.getDownloadURL().subscribe((url) => {
+            this.downloadURL = url;
+            if (index === 0) {
+              this.crudService.updateItem(this.basePath, { img: this.downloadURL }, this._ID);
+            } else if (index === 1) {
+              this.crudService.updateItem(this.basePath, { imgIntro: this.downloadURL }, this._ID);
+            } else if (index === 2) {
+              this.crudService.updateItem(this.basePath, { imgFet: this.downloadURL }, this._ID);
+            }
+            console.log('Upload Successful');
+          });
+        })
+      ).subscribe();
   }
-
 }

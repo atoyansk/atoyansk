@@ -79,32 +79,26 @@
                 </form>
             </div>
             <div [ngClass]="{'basicDisplay': !displayed,'displayNone': displayed}">
+              <div class="img-containers">
                 <div class="dropzone">
                     <h3>Image to the Project's List</h3>
-                    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                    <input type="file" (change)="upload($event, 0)" accept=".png,.jpg" />
+                </div>
 
-                    <div class="pctg" *ngIf="percentage | async as pct">
-                      <progress [value]="pct" max="100"></progress>
-                    </div>
+                <div class="dropzone">
+                    <h3>Main Image into Modal</h3>
+                    <input type="file" (change)="upload($event, 1)" accept=".png,.jpg" />
+                </div>
+
+                <div class="dropzone">
+                    <h3>Feature Image into Modal</h3>
+                    <input type="file" (change)="upload($event, 2)" accept=".png,.jpg" />
+                </div>
+                <div class="pctg" *ngIf="percentage | async as pct">
+                  <progress [value]="pct" max="100"></progress>
                 </div>
 
                 <!-- <div class="dropzone" 
-                    dropzone
-                    (hovered)="toggleHover1($event)"
-                    (dropped)="onDrop1($event)"
-                    [class.hovering]="isHovering">
-                    <h3>Main Image into Modal</h3>
-                    <p>Drag and Drop a File</p>
-                </div>
-                <div class="dropzone" 
-                    dropzone
-                    (hovered)="toggleHover2($event)"
-                    (dropped)="onDrop2($event)"
-                    [class.hovering]="isHovering">
-                    <h3>Feature Image into Modal</h3>
-                    <p>Drag and Drop a File</p>
-                </div>
-                <div class="dropzone" 
                     dropzone
                     (hovered)="toggleHover3($event)"
                     (dropped)="onDrop3($event)"
@@ -112,6 +106,7 @@
                     <h3>Slide Images into Modal</h3>
                     <p>Drag and Drop Many Files</p>
                 </div> -->
+              </div>
             </div> 
         </div>
         <div class="col-4">
