@@ -82,7 +82,7 @@ export class AdmPortfolioComponent implements OnInit {
 
   // isHovering: boolean;
 
-  // files: File[] = [];
+  imgs: string[] = [];
 
   task: AngularFireUploadTask;
 
@@ -166,9 +166,9 @@ export class AdmPortfolioComponent implements OnInit {
   //   this.isHovering = event;
   // }
 
-  // onDrop(files: FileList, id: any) {
+  // onDrop(files: FileList) {
   //   for (let i = 0; i < files.length; i++) {
-  //     this.files.push(files.item(i), id);
+  //     this.files.push(files.item(i));
   //   }
   // }
 
@@ -195,4 +195,27 @@ export class AdmPortfolioComponent implements OnInit {
         })
       ).subscribe();
   }
+
+  mUpload(event) {
+    for (let i = 0; i < event.target.files.length; i++) {
+      this.imgs.push(event.target.files[i]);
+
+      const path = `projects/${Date.now()}_${event.target.files[i].name}`;
+      const ref = this.storage.ref(path);
+      this.task = this.storage.upload(path, this.imgs[i]);
+      this.percentage = this.task.percentageChanges();
+
+      console.log(path);
+      this.task.snapshotChanges().pipe(
+          finalize(() => {
+            ref.getDownloadURL().subscribe((url) => {
+              this.downloadURL = url;
+              this.crudService.updateItem(this.basePath, { slide: [{ thumbImage: this.downloadURL }] }, this._ID);
+              console.log('Upload Successful');
+            });
+          })
+        ).subscribe();
+    }
+  }
+
 }

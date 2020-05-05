@@ -94,18 +94,16 @@
                     <h3>Feature Image into Modal</h3>
                     <input type="file" (change)="upload($event, 2)" accept=".png,.jpg" />
                 </div>
+
+                <div class="dropzone">
+                  <h3>Slide Images into Modal</h3>
+                  <input type="file" multiple (change)="mUpload($event)" accept=".png,.jpg" />
+                </div>
+
                 <div class="pctg" *ngIf="percentage | async as pct">
                   <progress [value]="pct" max="100"></progress>
                 </div>
 
-                <!-- <div class="dropzone" 
-                    dropzone
-                    (hovered)="toggleHover3($event)"
-                    (dropped)="onDrop3($event)"
-                    [class.hovering]="isHovering">
-                    <h3>Slide Images into Modal</h3>
-                    <p>Drag and Drop Many Files</p>
-                </div> -->
               </div>
             </div> 
         </div>
