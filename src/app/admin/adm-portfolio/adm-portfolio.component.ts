@@ -5,7 +5,7 @@ import { CrudMethodsService } from '../../services/crud-methods.service';
 import { Projects } from '../../models/projects.model';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-adm-portfolio',
@@ -89,6 +89,7 @@ export class AdmPortfolioComponent implements OnInit {
   percentage: Observable<number>;
   snapshot: Observable<any>;
   downloadURL: Observable<string | null>;
+  downloadURLs = [];
 
 
   constructor(private fb: FormBuilder, private crudService: CrudMethodsService, private storage: AngularFireStorage) { }
@@ -205,17 +206,50 @@ export class AdmPortfolioComponent implements OnInit {
       this.task = this.storage.upload(path, this.imgs[i]);
       this.percentage = this.task.percentageChanges();
 
-      console.log(path);
       this.task.snapshotChanges().pipe(
           finalize(() => {
             ref.getDownloadURL().subscribe((url) => {
-              this.downloadURL = url;
-              this.crudService.updateItem(this.basePath, { slide: [{ thumbImage: this.downloadURL }] }, this._ID);
+              this.downloadURLs = this.downloadURLs.concat([{thumbImage: url}]);
+              this.crudService.updateItem(this.basePath, { slide: this.downloadURLs }, this._ID);
               console.log('Upload Successful');
             });
           })
         ).subscribe();
     }
   }
+
+// mUpload(event) {
+//   for (let i = 0; i < event.target.files.length; i++) {
+//       this.imgs = event.target.files[i];
+
+//       this.uploadImageAsPromise(this.imgs);
+//   }
+// }
+
+// uploadImageAsPromise(imageFile) {
+//   return new Promise((resolve, reject) => {
+
+//       const path = `projects/${Date.now()}_${imageFile.name}`;
+//       const ref = this.storage.ref(path);
+
+//       this.task = this.storage.upload(path, imageFile);
+
+//       this.percentage = this.task.snapshotChanges()
+//       .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
+//       //Update progress bar
+//       this.task.on('state_changed',
+//           function progress(snapshot){
+//               var percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+//               uploader.value = percentage;
+//           },
+//           function error(err){
+
+//           },
+//           function complete(){
+//               var downloadURL = task.snapshot.downloadURL;
+//           }
+//       );
+//   });
+// }
 
 }
