@@ -10,13 +10,14 @@
     background-size: cover;
     -moz-background-size: cover;
     background-position: center;
-    position: relative;
-
+	position: relative;
+	margin-bottom: 0px !important;
+	height: 100vh;
     h1{
         color: #4E4E4E;
         text-align: right;
         display: float;
-        margin: -20px 0 208px 40px;
+        margin: 20px 0 208px 40px;
         font-size: 40px;
         line-height: 50px;
     }
@@ -24,21 +25,11 @@
         color: #4E4E4E;
         text-align: right;
         display: float;
-        margin: -195px 0 205px 60px;
-        font-size: 18px;
+        margin: -185px 0 205px 60px;
+    	font-size: 25px;
     }
 }
-#services{
-    h1{
-        background: linear-gradient(
-            rgba(39, 224, 255, 0.65),
-            rgba(39, 224, 255, 0.85)
-          ), url('../../../assets/images/angular-img.png') center center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          @include fade-in('500ms');
-    }
-}
+
 @media( max-width : 585px ){
 
     .jumbotron {
@@ -184,7 +175,13 @@
 
 	.features{
 		.row{ margin-left: 0 !important; margin-right: 0 !important; }
-		img{border: 1px solid #cfcfcf; }
+		img{
+			border: 2px solid #27dfff; 
+			border-radius: 50%;
+			-webkit-box-shadow: 9px 4px 0px 0px rgba(39, 223, 255,1);
+			-moz-box-shadow: 9px 4px 0px 0px rgba(39, 223, 255,1);
+			box-shadow: 9px 4px 0px 0px rgba(39, 223, 255,1);
+		}
 		ul { list-style: none; }
 	}
 }

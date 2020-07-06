@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './web/home/home.component';
-import { SkillsComponent } from './web/skills/skills.component';
+import { ServicesComponent } from './web/services/services.component';
 import { AboutComponent } from './web/about/about.component';
 import { LoginComponent } from './admin/login/login.component';
 import { RegisterUserComponent } from './admin/register-user/register-user.component';
@@ -48,7 +48,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
   declarations: [
     AppComponent,
     HomeComponent,
-    SkillsComponent,
+    ServicesComponent,
     AboutComponent,
     LoginComponent,
     AdmAboutComponent,

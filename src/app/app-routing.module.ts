@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './web/home/home.component';
 import { AboutComponent } from './web/about/about.component';
-import { SkillsComponent } from './web/skills/skills.component';
+import { ServicesComponent } from './web/services/services.component';
 import { ContactComponent } from './web/contact/contact.component';
 
 import { LoginComponent } from './admin/login/login.component';
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home',                   component: HomeComponent },
   { path: 'about',                  component: AboutComponent },
-  { path: 'skills',                 component: SkillsComponent },
+  { path: 'services',                 component: ServicesComponent },
   { path: 'contact',                component: ContactComponent },
   { path: 'admin', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login',                  component: LoginComponent },

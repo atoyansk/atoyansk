@@ -1,13 +1,17 @@
 @import '../../../assets/styles/mixins';
 h1{
+  position: relative;
     background: linear-gradient(
-        rgba(39, 224, 255, 0.65),
-        rgba(39, 224, 255, 0.85)
+        rgba(39, 224, 255, 0.65) 50%,
+        rgba(39, 224, 255, 0.85) 80%,
+        rgba(255, 255, 255, 1) 100%
+        /*rgba(57, 75, 83, 0.65),
+        rgba(57, 75, 83, 0.85)*/
       ), url('../../../assets/images/phpcode.jpg') center center;
       background-repeat: no-repeat;
       background-size: cover;
       @include fade-in('500ms');
 }
 .fulltext{
-  margin: 50px;
+  margin: 50px 150px;
 }
