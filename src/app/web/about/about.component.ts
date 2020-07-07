@@ -15,6 +15,39 @@ export class AboutComponent implements OnInit {
   basePath = 'about';
   about: About[];
 
+  barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true
+        },
+        gridLines: {
+            display: false
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+            display: false
+        }
+      }]
+    }
+  };
+  barChartLabels = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  chartColors: Array<any> = [{ backgroundColor: '#27dfff'}];
+  barChartType = 'horizontalBar';
+  barChartLegend = true;
+  barChartData = [
+    {
+      data: [10, 65, 59, 80, 81, 56, 55, 100],
+      label: 'My Skills',
+      barThickness: 15,
+      maxBarThickness: 20,
+      minBarLength: 2
+    }
+  ];
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
               private crudService: CrudMethodsService) { }
@@ -41,6 +74,7 @@ export class AboutComponent implements OnInit {
     }
 
   ngOnInit() {
+
     this.crudService.getItems(this.basePath).subscribe(dado => {
       this.about = dado.map(e => {
         const data = e.payload.doc.data() as About;

@@ -6,32 +6,14 @@
         </h1>
         <div class="fulltext" [innerHTML]="ab.fullText"></div>
         <div class="skills">
-            <div class="item-bar">
-                <span>HTML/CSS</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="100" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-            <div class="item-bar">
-                <span>WordPress</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="95" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-            <div class="item-bar">
-                <span>JavaScript</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="88" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-            <div class="item-bar">
-                <span>JQuery</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="90" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-            <div class="item-bar">
-                <span>Angular +2 / Ionic +3</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="85" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-            <div class="item-bar">
-                <span>PHP/MySQL</span>
-                <ngx-skill-bar full="true" barWidth="400" percentage="80" numberOfBars="1" showFigures="true" bgColor="#CCCCCC" color="#27dfff"></ngx-skill-bar>
-            </div>
-           
-    
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    [colors]="chartColors">
+            </canvas>
         </div>
     </section>
 

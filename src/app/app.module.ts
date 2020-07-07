@@ -37,7 +37,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { NgxSkillBarModule } from 'ngx-skill-bar';
+import { ChartsModule } from 'ng2-charts';
 
 import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
@@ -83,7 +83,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
     HttpClientModule,
     AngularEditorModule,
     NgImageSliderModule,
-    NgxSkillBarModule
+    ChartsModule
   ],
   providers: [AuthGuard, AuthService, AngularFireStorage],
   bootstrap: [AppComponent]
