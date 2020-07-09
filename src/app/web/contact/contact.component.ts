@@ -49,11 +49,11 @@ export class ContactComponent implements OnInit {
     }
 
     showSuccess() {
-      this.toastr.success('Seus dados foram gravados com sucesso!');
+      this.toastr.success('Great, I am glad to receive a message from you! I will respond you shortly!');
     }
 
     showError() {
-      this.toastr.error('Algo deu errado no processo... Tente novamente!');
+      this.toastr.error('Um, something went wrong ... Could you try again?');
     }
 
   ngOnInit() {
@@ -68,7 +68,21 @@ export class ContactComponent implements OnInit {
   }
 
   submit() {
-    this.crudService.createItem(this.basePath, this.f.value);
+    this.crudService.createItem(this.basePath, this.f.value)
+      .then(() => {
+          this.resetForm();
+          this.scrollToTop();
+          this.showSuccess();
+        }).catch((err) => {
+          this.showError();
+          console.log(err);
+        });
+  }
+
+  resetForm(){
+    this.f.controls.name    .setValue('');
+    this.f.controls.email   .setValue('');
+    this.f.controls.message .setValue('');
   }
 
 }

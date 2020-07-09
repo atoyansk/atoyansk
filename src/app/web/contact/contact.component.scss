@@ -11,11 +11,27 @@
           @include fade-in('500ms');
     }
 
+    h2 {
+        line-height: 45px;
+    }
+
     .btn-outline-rounded {
         padding: 8px 25px;
         margin: 10px 0;
         border: 2px solid transparent;
         border-radius: 15px;
         float: right;
-        background-color: var(--primary);;
+        font-weight: bold;
+        background-color: var(--primary);
+
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active:focus,
+        &:active,
+        &.active {
+            background-color: var(--secondary);
+            border: 2px solid transparent !important;
+            box-shadow: none !important;
+        }
     }
