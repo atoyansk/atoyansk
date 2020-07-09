@@ -8,6 +8,8 @@ import { CrudMethodsService } from '../../services/crud-methods.service';
 
 import { ToastrService } from 'ngx-toastr';
 
+// import { faFilm } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',

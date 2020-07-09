@@ -6,6 +6,9 @@
 @import 'assets/styles/variables';
 @import 'assets/styles/mixins';
 
+@import 'assets/styles/scss/fontawesome.scss';
+@import 'assets/styles/scss/solid.scss';
+
 body {
     position: relative;
     font-family: Montserrat, sans-serif;
