@@ -4,4 +4,40 @@
         <path fill="#ffffff" fill-opacity="1" d="M0,128L80,122.7C160,117,320,107,480,122.7C640,139,800,181,960,181.3C1120,181,1280,139,1360,117.3L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
       </svg>
     </h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2>Want to work with me?<br>Tell me about your project.</h2>
+        </div>
+        <div class="col-md-7">
+          <form [formGroup]="f" (ngSubmit)="submit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" placeholder="Your Mesage or Project Description" rows="5" formControlName="message" required></textarea>
+            </div>
+            <div class="col-md-12">
+              <button class="btn btn-success btn-outline-rounded" type="submit" [disabled]="f?.invalid">Send</button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+
+    </div>
   </section>

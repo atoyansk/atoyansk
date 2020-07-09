@@ -1,9 +1,12 @@
-import { Component, OnInit, HostListener, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, ViewEncapsulation, ViewContainerRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ScrollnavService } from '../../services/scrollnav.service';
 import { CrudMethodsService } from '../../services/crud-methods.service';
+
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -14,9 +17,15 @@ export class ContactComponent implements OnInit {
 
   navIsFixed: boolean;
 
+  f: FormGroup;
+  basePath = 'contacts';
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
-              private crudService: CrudMethodsService) { }
+              private crudService: CrudMethodsService,
+              private fb: FormBuilder,
+              public toastr: ToastrService,
+              vcr: ViewContainerRef) { }
 
   // scroll to top
   @HostListener('window:scroll', [])
@@ -39,7 +48,27 @@ export class ContactComponent implements OnInit {
         })();
     }
 
+    showSuccess() {
+      this.toastr.success('Seus dados foram gravados com sucesso!');
+    }
+
+    showError() {
+      this.toastr.error('Algo deu errado no processo... Tente novamente!');
+    }
+
   ngOnInit() {
+
+    this.f = this.fb.group({
+
+      name    : this.fb.control(''),
+      email   : this.fb.control(''),
+      message : this.fb.control('')
+
+    });
+  }
+
+  submit() {
+    this.crudService.createItem(this.basePath, this.f.value);
   }
 
 }

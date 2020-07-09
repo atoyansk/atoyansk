@@ -10,3 +10,12 @@
           background-size: cover;
           @include fade-in('500ms');
     }
+
+    .btn-outline-rounded {
+        padding: 8px 25px;
+        margin: 10px 0;
+        border: 2px solid transparent;
+        border-radius: 15px;
+        float: right;
+        background-color: var(--primary);;
+    }
