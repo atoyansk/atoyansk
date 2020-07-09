@@ -20,6 +20,8 @@ export class ContactComponent implements OnInit {
   f: FormGroup;
   basePath = 'contacts';
 
+  submitted = false;
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
               private crudService: CrudMethodsService,
@@ -60,14 +62,22 @@ export class ContactComponent implements OnInit {
 
     this.f = this.fb.group({
 
-      name    : this.fb.control(''),
-      email   : this.fb.control(''),
-      message : this.fb.control('')
+      name    : ['', Validators.required],
+      email   : ['', [Validators.required, Validators.email]],
+      message : ['', Validators.required]
 
     });
   }
 
+  get fr() { return this.f.controls; }
+
   submit() {
+
+    this.submitted = true;
+
+    if (this.f.invalid) {
+      return;
+    }
     this.crudService.createItem(this.basePath, this.f.value)
       .then(() => {
           this.resetForm();
@@ -79,7 +89,8 @@ export class ContactComponent implements OnInit {
         });
   }
 
-  resetForm(){
+  resetForm() {
+    this.submitted = false;
     this.f.controls.name    .setValue('');
     this.f.controls.email   .setValue('');
     this.f.controls.message .setValue('');

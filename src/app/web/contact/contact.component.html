@@ -16,23 +16,33 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name" required>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && fr.name.errors }">
+                  <div *ngIf="submitted && fr.name.errors" class="invalid-feedback">
+                    <div *ngIf="fr.name.errors.required">Name is required</div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email" required>
+                  <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && fr.email.errors }">
+                  <div *ngIf="submitted && fr.email.errors" class="invalid-feedback">
+                    <div *ngIf="fr.email.errors.required">Email is required</div>
+                    <div *ngIf="fr.email.errors.email">Email must be a valid email address</div>
+                </div>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea class="form-control" id="message" placeholder="Your Mesage or Project Description" rows="5" formControlName="message" required></textarea>
+              <textarea class="form-control" id="message" placeholder="Your Mesage or Project Description" rows="5" formControlName="message" [ngClass]="{ 'is-invalid': submitted && fr.message.errors }"></textarea>
+              <div *ngIf="submitted && fr.message.errors" class="invalid-feedback">
+                <div *ngIf="fr.message.errors.required">Message is required</div>
+              </div>
             </div>
             <div class="col-md-12">
-              <button class="btn btn-success btn-outline-rounded" type="submit" [disabled]="f?.invalid">Send</button>
+              <button class="btn btn-success btn-outline-rounded" type="submit">Send</button>
             </div>
             
           </form>
