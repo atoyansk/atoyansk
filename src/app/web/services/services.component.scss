@@ -10,3 +10,66 @@
           background-size: cover;
           @include fade-in('500ms');
     }
+
+    #servicelist{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		margin-top: 0;
+	}
+
+    .card{
+        padding: 20px 0 0;
+        height: auto;
+        overflow:hidden;
+        position: relative !important;
+        margin: 20px;
+        width: 280px !important;
+    }
+
+    .icon-card {
+        position:relative;
+        left:40%;
+        top: 45px;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary);
+        text-align: center;
+        z-index: 999;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        span{
+            font-size: 26px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &:before {
+            display: block;
+            border: 2px solid white;
+            background-color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            content: "";
+          }
+    }
+
+    .contents {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+    }

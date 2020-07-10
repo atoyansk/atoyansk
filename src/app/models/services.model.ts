@@ -3,4 +3,5 @@ export class Services {
     creationDate: Date;
     serviceTitle: string;
     fullText: string;
+    icon: string;
 }

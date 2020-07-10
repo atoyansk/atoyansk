@@ -9,11 +9,26 @@ import { Services } from '../../models/services.model';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss']
+  styleUrls: ['./services.component.scss'],
+
+  animations: [
+    trigger('enterCard', [
+
+      transition('* => *', [
+        query(':enter', style({ overflow: 'hidden', opacity: '0', transform: 'scale3d(0.001, 0.001, 1)'}), { optional: true }),
+        query(':enter', stagger('300ms', [
+          animate('250ms ease-out', style({opacity: '1', transform: 'scale3d(1, 1, 1)'}))
+        ]), { optional: true })
+      ])
+
+    ])
+  ]
 })
 export class ServicesComponent implements OnInit {
 
   navIsFixed: boolean;
+  basePath = 'services';
+  services: Services[];
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -41,6 +56,13 @@ export class ServicesComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.crudService.getItems(this.basePath).subscribe(data => {
+      this.services = data.map(e => {
+        const serv = e.payload.doc.data() as Services;
+        serv.key = e.payload.doc.id;
+        return serv;
+      });
+    });
   }
 
 }
