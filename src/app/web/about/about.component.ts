@@ -20,17 +20,30 @@ export class AboutComponent implements OnInit {
   about: About[];
 
   basePath2 = 'skills';
-  skills;
+  softSkills;
+  devSkills;
+  prodSkills;
 
   barChartOptions = {};
-  barChartLabels = [];
-  bar = [];
-  valores = [];
+
+  softBar = [];
+  softValues = [];
+  devBar = [];
+  devValues = [];
+  prodBar = [];
+  prodValues = [];
+
   chartColors = [];
   barChartType;
   barChartLegend;
   barChartPlugins = [];
-  barChartData = [{}];
+
+  barChartLabels1 = [];
+  barChartData1 = [{}];
+  barChartLabels2 = [];
+  barChartData2 = [{}];
+  barChartLabels3 = [];
+  barChartData3 = [{}];
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
@@ -67,7 +80,7 @@ export class AboutComponent implements OnInit {
       });
     });
 
-    this.skills = this.crudService.getItems(this.basePath2).pipe(
+    this.devSkills = this.crudService.getItem(this.basePath2, 'type', 'dev').pipe(
       map (graph => graph.map(a => {
       const data = a.payload.doc.data() as Skills;
       const id = a.payload.doc.id;
@@ -75,15 +88,30 @@ export class AboutComponent implements OnInit {
       })
     ));
 
-    this.skills.subscribe(item => {
+    this.devSkills.subscribe(item => {
       item.forEach(i => {
-        this.bar.push(i.name);
-        this.valores.push(i.percentage);
+        this.devBar.push(i.name);
+        this.devValues.push(i.percentage);
+      });
+    });
+
+
+    this.softSkills = this.crudService.getItem(this.basePath2, 'type', 'soft').pipe(
+      map (graph => graph.map(a => {
+      const data = a.payload.doc.data() as Skills;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+      })
+    ));
+
+    this.softSkills.subscribe(item => {
+      item.forEach(i => {
+        this.softBar.push(i.name);
+        this.softValues.push(i.percentage);
       });
     });
 
     this.barChartOptions = {
-      scaleShowVerticalLines: false,
       responsive: true,
       maintainAspectRatio: false,
       tooltips: {
@@ -121,15 +149,29 @@ export class AboutComponent implements OnInit {
         }]
       }
     };
-    this.barChartLabels = this.bar;
+
     this.chartColors = [{ backgroundColor: '#27dfff'}];
     this.barChartType = 'horizontalBar';
     this.barChartLegend = false;
     this.barChartPlugins = [pluginDataLabels];
-    this.barChartData = [
+
+
+    this.barChartLabels1 = this.softBar;
+    this.barChartData1 = [
       {
-        data: this.valores,
-        label: 'My Skills',
+        data: this.softValues,
+        label: 'Soft Skills',
+        barThickness: 18,
+        maxBarThickness: 20,
+        minBarLength: 2
+      }
+    ];
+
+    this.barChartLabels2 = this.devBar;
+    this.barChartData2 = [
+      {
+        data: this.devValues,
+        label: 'Development Skills',
         barThickness: 18,
         maxBarThickness: 20,
         minBarLength: 2

@@ -12,6 +12,10 @@ export class CrudMethodsService {
     return this.firestore.collection(basePath).snapshotChanges();
   }
 
+  getItem(basePath: string, field: string, value: any) {
+    return this.firestore.collection(basePath, res => res.where(field, '==', value)).snapshotChanges();
+  }
+
   createItem(basePath: string, value: any) {
     return this.firestore.collection(basePath).add(value);
   }
