@@ -34,6 +34,9 @@ body {
   a {
   color: #4E4E4E;
   }
+  .full a {
+    text-decoration: underline;
+  }
   a:focus, a:hover{
     @include animate(color, 320ms);
     color: var(--primary);
