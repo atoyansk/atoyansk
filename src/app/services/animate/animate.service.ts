@@ -69,8 +69,9 @@ export class AnimateService {
       // Maps the scrolling to the element visibility value
       switchMap( () => this.visibility(elm) ),
       // Applies an hysteresys, so, to trigger the animation on based on the treshold while off on full invisibility
-      scan((result, visiblility) => (visiblility >= threshold) || (result && visiblility > 0), false),
-      // Distincts the resulting triggers 
+      // scan((result, visiblility) => (visiblility >= threshold) || (result && visiblility > 0), false),
+      scan<number, boolean>((result, visiblility) => (visiblility >= threshold || (result ? visiblility > 0 : false))),
+      // Distincts the resulting triggers
       distinctUntilChanged(),
       // Runs within the angular zone to trigger change detection back on
       runInZone(this.zone)
