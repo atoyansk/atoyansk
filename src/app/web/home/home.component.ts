@@ -40,6 +40,7 @@ import { Projects } from '../../models/projects.model';
 export class HomeComponent implements OnInit {
 
   navIsFixed: boolean;
+  valor: number;
   basePath = 'projects';
   projects: Projects[];
 
@@ -69,15 +70,16 @@ export class HomeComponent implements OnInit {
   // scroll to top
   @HostListener('window:scroll', [])
     onWindowScroll() {
-      const valor: number = window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-      if (valor > 50) {
+      this.valor = window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+      if (this.valor > 50) {
         this.navIsFixed = true;
         this.scrollserv.setdata(this.navIsFixed);
-      } else if (this.navIsFixed && valor < 30) {
+      } else if (this.navIsFixed && this.valor < 30) {
         this.navIsFixed = false;
         this.scrollserv.setdata(this.navIsFixed);
       }
-        }
+      console.log(this.valor);
+    }
       scrollToTop() { (function smoothscroll() {
         const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
         if (currentScroll > 0) {

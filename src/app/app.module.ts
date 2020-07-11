@@ -39,6 +39,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
+import { AnimateModule } from './services/animate/animate.module';
 
 import { ProjectsPipe } from './projects.pipe';
 import { UniqueCategoryPipe } from './unique-category.pipe';
@@ -85,7 +86,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
     AngularEditorModule,
     NgImageSliderModule,
     ChartsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AnimateModule
   ],
   providers: [AuthGuard, AuthService, AngularFireStorage],
   bootstrap: [AppComponent]

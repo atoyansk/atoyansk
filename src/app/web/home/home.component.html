@@ -1,5 +1,5 @@
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" wmAnimate="fadeInRight" wmAnimateSpeed="faster">
   <h1>Web Developer &<br/>Product Manager</h1>
   <p>- Airton Toyansk -</p>
   <div class="about-option">
@@ -16,7 +16,7 @@
     </svg>
   </h1>
   <h4>A showcase of development, management and experiments I have worked on.</h4>
-  <div class="contents slideanim">
+  <div class="contents" *ngIf="valor > 450">
     <ul id="filters" class="clearfix">
       <li><span class="filter" (click)="selectedCategory = 'all'">All Projects</span></li>
       <li *ngFor="let proj of projects | uniqueCategory:'category'" (click)="selectedCategory = proj.category"><span class="filter" >{{proj.category}}</span></li>
