@@ -56,6 +56,8 @@ export class ServicesComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.scrollToTop();
+
     this.crudService.getItems(this.basePath).subscribe(data => {
       this.services = data.map(e => {
         const serv = e.payload.doc.data() as Services;

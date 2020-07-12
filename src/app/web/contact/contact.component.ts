@@ -62,6 +62,8 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
 
+    this.scrollToTop();
+
     this.f = this.fb.group({
 
       name    : ['', Validators.required],

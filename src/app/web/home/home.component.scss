@@ -13,7 +13,14 @@
 	position: relative;
 	margin-bottom: 0px !important;
 	height: 100vh;
-    h1{
+}
+
+.title {
+    position: absolute;
+	top: 140px;
+	right: 10px;
+    width: 100%;
+	h1{
         color: #4E4E4E;
         text-align: right;
         display: float;

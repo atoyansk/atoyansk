@@ -69,6 +69,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
 
+    this.scrollToTop();
+
     this.crudService.getItems(this.basePath).subscribe(dado => {
       this.about = dado.map(e => {
         const data = e.payload.doc.data() as About;

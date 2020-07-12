@@ -90,6 +90,9 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit() {
+
+    this.scrollToTop();
+
     this.crudService.getItems(this.basePath).subscribe(data => {
       this.projects = data.map(e => {
         const data = e.payload.doc.data() as Projects;
