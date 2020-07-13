@@ -82,7 +82,11 @@ export class ContactComponent implements OnInit {
     if (this.f.invalid) {
       return;
     }
-    this.crudService.createItem(this.basePath, this.f.value)
+    const {name, email, message} = this.f.value;
+    const date = Date();
+
+    let formRequest = { name, email, message, date };
+    this.crudService.createItem(this.basePath, formRequest)
       .then(() => {
           this.resetForm();
           this.scrollToTop();

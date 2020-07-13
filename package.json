@@ -1,6 +1,6 @@
 {
   "name": "atoyansk",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -37,6 +37,7 @@
     "ng-image-slider": "^2.4.1",
     "ng2-charts": "^2.3.2",
     "ngx-toastr": "^11.3.3",
+    "nodemailer": "^6.4.10",
     "popper.js": "^1.16.1",
     "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
