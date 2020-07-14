@@ -93,6 +93,21 @@
       margin-top: -40px;
       li a{color: white;}
     }
+
+    .link-contact {
+      padding: 15px 0;
+      left: 50%;
+      margin-left: -40%;
+      position: absolute;
+      width: 80%;
+      z-index: 1;
+      margin-top: -40px;
+      text-align: center;
+
+        .contactme {
+          margin: 25px 75px 2px;
+        }
+    }
   }
 
   .navbar-nav{
@@ -108,4 +123,5 @@
         color: var(--primary) !important;
       }
     }
+
   }

@@ -23,3 +23,26 @@ h1{
   height: 380px;
   font-size: 18px;
 }
+
+@media( max-width : 585px ){
+  .fulltext {
+    margin: 0 20px;
+  }
+}
+
+@media( min-width : 586px ) and ( max-width: 1024px ){
+  .fulltext {
+    margin: 0 50px;
+  }
+}
+
+@media( max-width: 758px ){
+  .skills{
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 95%;
+      height: 760px;
+  }
+}
+
