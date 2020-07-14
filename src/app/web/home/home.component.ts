@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   selectedCategory = 'all';
   showModal = false;
 
+  detModal;
   modalTitle: string;
   modalIntro: string;
   modalKey: string;
@@ -95,9 +96,9 @@ export class HomeComponent implements OnInit {
 
     this.crudService.getItems(this.basePath).subscribe(data => {
       this.projects = data.map(e => {
-        const data = e.payload.doc.data() as Projects;
-        data.key = e.payload.doc.id;
-        return data;
+        const pro = e.payload.doc.data() as Projects;
+        pro.key = e.payload.doc.id;
+        return pro;
       });
     });
   }

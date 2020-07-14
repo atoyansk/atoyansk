@@ -1,5 +1,10 @@
 node_modules/
 package-lock.json
 .editorconfig
-src/environments/environment.prod.ts
-src/environments/environment.ts
+src/environments/
+.firebase
+dist/
+e2e/
+public/
+.firebaserc
+browserlist

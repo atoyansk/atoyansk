@@ -4,8 +4,11 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 
-const gmailEmail = functions.config().gmail.email;
-const gmailPassword = functions.config().gmail.password;
+// const gmailEmail = functions.config().gmail.email;
+// const gmailPassword = functions.config().gmail.password;
+
+const gmailEmail = 'atoyansk.work@gmail.com';
+const gmailPassword = '3@beersheva';
 
 admin.initializeApp();
 

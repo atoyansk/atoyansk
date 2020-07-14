@@ -7,7 +7,7 @@ import _ from 'lodash';
 })
 export class UniqueCategoryPipe implements PipeTransform {
 
-  transform(items: any[], args: any[]): any {
+  transform(items: any[], args: string): any {
 
     // lodash uniqBy function
     return _.uniqBy(items, args);
